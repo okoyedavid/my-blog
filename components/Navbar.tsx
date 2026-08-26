@@ -1,16 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CategoryPill } from "@/components/blog/category-pill";
-import ThemeToggle from "@/components/ThemeToggle";
 import { categories } from "@/data/blogs";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (!isMenuOpen) return;
+    if (!isMenuOpen || pathname.startsWith("/dashboard")) return;
 
     const previousOverflow = document.body.style.overflow;
     const closeOnEscape = (event: KeyboardEvent) => {
@@ -24,12 +25,14 @@ export default function Navbar() {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", closeOnEscape);
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, pathname]);
+
+  if (pathname.startsWith("/dashboard")) return null;
 
   return (
     <div
       data-animation="over-left"
-      className="sticky top-0 z-[999]  bg-[var(--white)]/90 py-3 backdrop-blur-xl"
+      className="site-navbar sticky top-0 z-[999] bg-[var(--white)]/90 py-3 backdrop-blur-xl"
       data-easing2="ease"
       data-easing="ease-out-cubic"
       data-collapse="all"

@@ -246,6 +246,27 @@ body > .auth-workspace ~ section {
   display: none;
 }
 
+body:has(> .dashboard-shell) > .site-navbar,
+body > .dashboard-shell ~ .site-footer {
+  display: none;
+}
+
+.settings-input {
+  height: 3rem;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--panel);
+  padding-inline: 1rem;
+  color: var(--foreground);
+  outline: none;
+}
+
+.settings-input:focus {
+  border-color: var(--control-border);
+  box-shadow: 0 0 0 2px var(--control-border-soft);
+}
+
 .editor-preview-content > :where(h1, h2, h3) {
   margin-top: 2.5rem;
   margin-bottom: 0.75rem;

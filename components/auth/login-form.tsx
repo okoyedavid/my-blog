@@ -7,7 +7,7 @@ import { FormEvent, useState } from "react";
 
 import { useAuth } from "@/components/editor/editor-shell";
 
-export function LoginForm({ returnTo = "/editor" }: { returnTo?: string }) {
+export function LoginForm({ returnTo = "/dashboard" }: { returnTo?: string }) {
   const router = useRouter();
   const { isAuthenticated, isReady, login } = useAuth();
   const [email, setEmail] = useState("");
@@ -130,7 +130,7 @@ export function LoginForm({ returnTo = "/editor" }: { returnTo?: string }) {
 
             <button
               type="submit"
-              disabled={isSubmitting || !isReady}
+              disabled={isSubmitting}
               className="mt-1 inline-flex min-h-12 w-full items-center justify-between rounded-full bg-[color:var(--panel-inverse)] px-5 text-sm font-semibold text-[color:var(--panel-inverse-foreground)] transition hover:opacity-80 disabled:cursor-wait disabled:opacity-55"
             >
               <span>{isSubmitting ? "Opening your desk…" : "Sign in"}</span>

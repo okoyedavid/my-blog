@@ -1,11 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { CategoryPill } from "@/components/blog/category-pill";
 import { categories } from "@/data/blogs";
-import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/dashboard")) return null;
+
   return (
-    <section className="relative overflow-hidden pb-0 pt-16">
+    <section className="site-footer relative overflow-hidden pb-0 pt-16">
       <div className="mx-auto block w-[96%] max-w-[68rem]">
         <div className="-mx-2 mb-8 flex flex-wrap content-stretch">
           <div className="mb-8 flex-1 px-2">
@@ -216,7 +221,6 @@ export default function Footer() {
           </div>
           <div className="mb-8 flex-[0_auto] px-2">
                     <div className="flex items-center justify-end gap-2">
-              <ThemeToggle />
               <a
                 href="https://okoyedavid.com"
                 target="_blank"

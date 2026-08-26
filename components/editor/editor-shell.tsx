@@ -168,6 +168,7 @@ function collectAssetIds(value: Post["contentJson"]) {
 export function EditorShell({ initialPost }: { initialPost: Post }) {
   const router = useRouter();
   const pathname = usePathname();
+  const isDashboardEditor = pathname.startsWith("/dashboard/editor");
   const { isAuthenticated, isReady } = useAuth();
   const [title, setTitle] = useState(initialPost.title);
   const [slug, setSlug] = useState(initialPost.slug);
@@ -237,6 +238,22 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
       router.replace(`/login?next=${encodeURIComponent(pathname)}`);
     }
   }, [isAuthenticated, isReady, pathname, router]);
+
+  useEffect(() => {
+    if (!isDashboardEditor) return;
+    window.dispatchEvent(
+      new CustomEvent<boolean>("editor-details-visibility", {
+        detail: isDetailsOpen,
+      }),
+    );
+  }, [isDashboardEditor, isDetailsOpen]);
+
+  useEffect(() => {
+    if (!isDashboardEditor) return;
+    const openDetails = () => setDetailsPreference(true);
+    window.addEventListener("editor-open-details", openDetails);
+    return () => window.removeEventListener("editor-open-details", openDetails);
+  }, [isDashboardEditor]);
 
   const slashBridge = useMemo(() => ({
     items: slashCommandItems,
@@ -677,11 +694,11 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
   }
 
   return (
-    <div className="editor-workspace min-h-screen bg-[color:var(--background)] px-4 py-6 text-[color:var(--foreground)] sm:px-6 sm:py-8">
+    <div className={`editor-workspace min-h-screen bg-[color:var(--background)] px-4 text-[color:var(--foreground)] sm:px-6 ${isDashboardEditor ? "py-5" : "py-6 sm:py-8"}`}>
       <div className="mx-auto flex max-w-[80rem] flex-col gap-6">
         <div className={`grid items-start gap-6 ${isDetailsOpen ? "xl:grid-cols-[minmax(0,1fr)_20rem]" : ""}`}>
           <main className={`min-w-0 space-y-5 ${isDetailsOpen ? "" : "mx-auto w-full max-w-[67.5rem]"}`}>
-            <header className="border-b border-[color:var(--border)] pb-6">
+            {isDashboardEditor ? null : <header className="border-b border-[color:var(--border)] pb-6">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--muted-foreground)]">
@@ -711,7 +728,7 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
                   </button>
                 ) : null}
               </div>
-            </header>
+            </header>}
 
             <EditorToolbar
               editor={editor}

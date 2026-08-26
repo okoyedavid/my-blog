@@ -102,6 +102,14 @@ export const getPostById = cache(async (id: string) => {
   return record.posts.find((post) => post.id === id) ?? null;
 });
 
+export const getAllPosts = cache(async () => {
+  const record = await readStore();
+  return [...record.posts].sort(
+    (left, right) =>
+      new Date(right.updatedAt).getTime() - new Date(left.updatedAt).getTime(),
+  );
+});
+
 export const getPublishedPostBySlug = cache(async (slug: string) => {
   const record = await readStore();
   return (
@@ -167,4 +175,3 @@ export async function revertPostToDraft(id: string, input: PostSavePayload) {
     status: "draft",
   });
 }
-

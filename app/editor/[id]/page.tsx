@@ -1,37 +1,12 @@
-import { notFound } from "next/navigation";
-import { EditorShell } from "@/components/editor/editor-shell";
-import { getPostById } from "@/lib/posts/repository";
+import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
-type EditorDetailPageProps = {
-  params: Promise<{
-    id: string;
-  }>;
+export const metadata: Metadata = {
+  title: "Opening editor",
+  robots: { index: false, follow: false },
 };
 
-export async function generateMetadata({
-  params,
-}: EditorDetailPageProps): Promise<Metadata> {
+export default async function LegacyEditorPage({ params }: PageProps<"/editor/[id]">) {
   const { id } = await params;
-  const post = await getPostById(id);
-  return {
-    title: post?.title ? `Edit: ${post.title}` : "Untitled Draft",
-    description: post?.title
-      ? `Edit the “${post.title}” article in the Okoye’s Log editor.`
-      : "Edit an article draft in the Okoye’s Log editor.",
-    robots: { index: false, follow: false },
-  };
+  redirect(`/dashboard/editor/${id}`);
 }
-
-export default async function EditorDetailPage({
-  params,
-}: EditorDetailPageProps) {
-  const { id } = await params;
-  const post = await getPostById(id);
-
-  if (!post) {
-    notFound();
-  }
-
-  return <EditorShell initialPost={post} />;
-}
-import type { Metadata } from "next";
