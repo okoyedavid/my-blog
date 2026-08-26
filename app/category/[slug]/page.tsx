@@ -1,37 +1,47 @@
 import type { Metadata } from "next";
-import CategoryHero from "@/features/category/category-hero";
-import CategoryList from "@/features/category/category-list";
-import FeaturedCategory from "@/features/category/featured-category";
+import { notFound } from "next/navigation";
+import { CollectionPage } from "@/components/blog/collection-page";
+import { getBlogsByCategory, getCategory } from "@/data/blogs";
 
 type CategoryPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-function categoryName(slug: string) {
-  return slug
-    .split("-")
-    .filter(Boolean)
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
-
 export async function generateMetadata({
   params,
 }: CategoryPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const category = categoryName(slug) || "Montreal";
+  const category = getCategory(slug);
+  if (!category) return { title: "Category not found" };
+
   return {
-    title: `${category} News`,
-    description: `Explore ThePost's latest ${category.toLowerCase()} reporting, insights and stories from across Montreal.`,
+    title: `${category.name} Articles`,
+    description: category.description,
+    alternates: { canonical: `/category/${category.slug}` },
+    openGraph: {
+      type: "website",
+      url: `/category/${category.slug}`,
+      title: `${category.name} Articles`,
+      description: category.description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${category.name} Articles`,
+      description: category.description,
+    },
   };
 }
 
-export default function Page() {
+export default async function Page({ params }: CategoryPageProps) {
+  const { slug } = await params;
+  const category = getCategory(slug);
+  if (!category) notFound();
+
   return (
-    <div>
-      <CategoryHero />
-      <FeaturedCategory />
-      <CategoryList />
-    </div>
+    <CollectionPage
+      title={category.name}
+      description={category.description}
+      posts={getBlogsByCategory(category.slug)}
+    />
   );
 }

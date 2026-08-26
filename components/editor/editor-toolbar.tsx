@@ -55,20 +55,21 @@ const fontFamilies = [
 
 const fontSizes = ["12px", "14px", "16px", "18px", "24px", "32px"];
 
+// These are intentional article colours. Unstyled text remains theme-aware.
 const textColors = [
   { label: "Default", value: "" },
-  { label: "Slate", value: "#334155" },
-  { label: "Blue", value: "#2563eb" },
-  { label: "Emerald", value: "#059669" },
-  { label: "Rose", value: "#e11d48" },
+  { label: "Ink", value: "#404040" },
+  { label: "Ocean", value: "#2563eb" },
+  { label: "Forest", value: "#047857" },
+  { label: "Rose", value: "#be123c" },
 ];
 
 function ToolbarDivider() {
-  return <div className="mx-1 h-6 w-px shrink-0 bg-slate-200" aria-hidden="true" />;
+  return <div className="mx-1 h-6 w-px shrink-0 bg-[color:var(--border)]" aria-hidden="true" />;
 }
 
 function ToolbarGroup({ children }: { children: React.ReactNode }) {
-  return <div className="flex items-center gap-1">{children}</div>;
+  return <div className="flex flex-nowrap items-center gap-1 md:flex-wrap">{children}</div>;
 }
 
 function ToolbarIconButton({
@@ -92,11 +93,11 @@ function ToolbarIconButton({
       aria-pressed={active}
       disabled={disabled}
       onClick={onClick}
-      className={`inline-flex h-8 w-8 items-center justify-center rounded-md border text-slate-600 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 ${
+      className={`inline-flex h-8 w-8 items-center justify-center rounded-lg border text-[color:var(--foreground)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--control-border-soft)] ${
         active
-          ? "border-sky-200 bg-sky-50 text-sky-700"
-          : "border-transparent hover:bg-slate-100"
-      } disabled:text-slate-300 disabled:hover:bg-transparent`}
+          ? "border-[color:var(--control-border)] bg-[color:var(--panel-inverse)] text-[color:var(--panel-inverse-foreground)]"
+          : "border-transparent hover:bg-[color:var(--panel-soft)]"
+      } disabled:text-[color:var(--muted-foreground)] disabled:hover:bg-transparent`}
     >
       {children}
     </button>
@@ -123,7 +124,7 @@ function ToolbarSelect({
         aria-label={label}
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="h-8 appearance-none rounded-md border border-slate-200 bg-white px-2 pr-7 text-sm text-slate-700 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-100"
+        className="h-8 w-full appearance-none rounded-lg border border-[color:var(--border)] bg-[color:var(--panel-strong)] px-2 pr-7 text-sm text-[color:var(--foreground)] outline-none transition focus:border-[color:var(--control-border)] focus:ring-2 focus:ring-[color:var(--control-border-soft)]"
       >
         {options.map((option) => (
           <option key={option.value || option.label} value={option.value}>
@@ -131,7 +132,7 @@ function ToolbarSelect({
           </option>
         ))}
       </select>
-      <ChevronDown className="pointer-events-none absolute right-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-400" />
+      <ChevronDown className="pointer-events-none absolute right-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[color:var(--muted-foreground)]" />
     </label>
   );
 }
@@ -176,8 +177,8 @@ export function EditorToolbar({
 }: EditorToolbarProps) {
   if (!editor) {
     return (
-      <div className="sticky top-4 z-30 rounded-2xl border border-slate-200 bg-white px-3 py-2 shadow-[0_10px_30px_-20px_rgba(15,23,42,0.18)]">
-        <div className="h-9 animate-pulse rounded-lg bg-slate-100" />
+      <div className="relative z-30 rounded-[var(--radius-small)] border border-[color:var(--border)] bg-[color:var(--panel-strong)] px-3 py-2 md:sticky md:top-[4.5rem]">
+        <div className="h-9 animate-pulse rounded-lg bg-[color:var(--panel-soft)]" />
       </div>
     );
   }
@@ -190,10 +191,10 @@ export function EditorToolbar({
   const fontSizeIndex = Math.max(fontSizes.indexOf(fontSize), 2);
 
   return (
-    <div className="sticky top-4 z-30">
-      <div className="rounded-2xl border border-slate-200 bg-white/95 px-3 py-2 shadow-[0_10px_30px_-20px_rgba(15,23,42,0.18)] backdrop-blur">
-        <div className="overflow-x-auto pb-1">
-          <div className="flex min-w-max items-center gap-1">
+    <div className="relative z-30 md:sticky md:top-[4.5rem]">
+      <div className="rounded-[var(--radius-small)] border border-[color:var(--border)] bg-[color:var(--panel-strong)]/95 px-3 py-2 backdrop-blur-xl">
+        <div className="h-14 w-full overflow-x-auto overflow-y-hidden pb-1 md:h-auto md:overflow-visible">
+          <div className="flex min-w-max flex-nowrap items-center gap-1 md:min-w-0 md:flex-wrap">
             <ToolbarGroup>
               <ToolbarIconButton
                 label="Undo"
@@ -467,8 +468,8 @@ export function EditorToolbar({
         </div>
 
         {urlPanel ? (
-          <div className="mt-2 flex flex-col gap-2 border-t border-slate-200 pt-2 md:flex-row md:items-center">
-            <label className="grid flex-1 gap-1 text-xs font-medium uppercase tracking-[0.14em] text-slate-500">
+          <div className="mt-2 flex flex-col gap-2 border-t border-[color:var(--border)] pt-2 md:flex-row md:items-center">
+            <label className="grid flex-1 gap-1 text-xs font-medium uppercase tracking-[0.14em] text-[color:var(--muted-foreground)]">
               <span>{urlPanel.mode === "link" ? "Link URL" : "Image URL"}</span>
               <input
                 value={urlPanel.value}
@@ -490,7 +491,7 @@ export function EditorToolbar({
                     ? "https://example.com/article"
                     : "https://images.example.com/photo.jpg"
                 }
-                className="h-9 rounded-md border border-slate-200 bg-white px-3 text-sm font-normal normal-case tracking-normal text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-2 focus:ring-sky-100"
+                className="h-9 rounded-lg border border-[color:var(--border)] bg-[color:var(--panel-strong)] px-3 text-sm font-normal normal-case tracking-normal text-[color:var(--foreground)] outline-none transition placeholder:text-[color:var(--muted-foreground)] focus:border-[color:var(--control-border)] focus:ring-2 focus:ring-[color:var(--control-border-soft)]"
                 aria-label={`${urlPanel.mode} URL`}
               />
             </label>
@@ -498,14 +499,14 @@ export function EditorToolbar({
               <button
                 type="button"
                 onClick={onSubmitUrl}
-                className="inline-flex h-9 items-center rounded-md bg-[color:var(--brand-500)] px-3 text-sm font-semibold text-white transition hover:bg-[color:var(--brand-600)]"
+                className="inline-flex h-9 items-center rounded-md bg-[color:var(--brand-500)] px-3 text-sm font-semibold text-[color:var(--brand-foreground)] transition hover:bg-[color:var(--brand-600)]"
               >
                 Insert
               </button>
               <button
                 type="button"
                 onClick={onClosePanel}
-                className="inline-flex h-9 items-center rounded-md border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+                className="inline-flex h-9 items-center rounded-md border border-[color:var(--border)] bg-[color:var(--panel-strong)] px-3 text-sm font-medium text-[color:var(--foreground)] transition hover:bg-[color:var(--panel-soft)]"
               >
                 Cancel
               </button>

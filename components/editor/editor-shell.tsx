@@ -29,8 +29,9 @@ import { slugify } from "@/lib/editor/slug";
 import { buildPostStats } from "@/lib/editor/stats";
 import type { Post, PostAsset } from "@/lib/posts/types";
 import { useEditor } from "@tiptap/react";
+import { X } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   startTransition,
   useCallback,
@@ -38,6 +39,7 @@ import {
   useMemo,
   useRef,
   useState,
+  useSyncExternalStore,
 } from "react";
 
 type SaveState = "idle" | "saving" | "saved" | "error";
@@ -46,6 +48,22 @@ type UrlPanelState = {
   mode: "link" | "image";
   value: string;
 } | null;
+
+const desktopEditorQuery = "(min-width: 1280px)";
+
+function subscribeToDesktopEditor(onStoreChange: () => void) {
+  const media = window.matchMedia(desktopEditorQuery);
+  media.addEventListener("change", onStoreChange);
+  return () => media.removeEventListener("change", onStoreChange);
+}
+
+function getDesktopEditorSnapshot() {
+  return window.matchMedia(desktopEditorQuery).matches;
+}
+
+function getServerDesktopEditorSnapshot() {
+  return false;
+}
 
 const slashCommandItems: SlashCommandItem[] = [
   {
@@ -149,6 +167,7 @@ function collectAssetIds(value: Post["contentJson"]) {
 
 export function EditorShell({ initialPost }: { initialPost: Post }) {
   const router = useRouter();
+  const pathname = usePathname();
   const { isAuthenticated, isReady } = useAuth();
   const [title, setTitle] = useState(initialPost.title);
   const [slug, setSlug] = useState(initialPost.slug);
@@ -164,6 +183,13 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [publishError, setPublishError] = useState<string | null>(null);
   const [isPreview, setIsPreview] = useState(false);
+  const desktopDetailsDefault = useSyncExternalStore(
+    subscribeToDesktopEditor,
+    getDesktopEditorSnapshot,
+    getServerDesktopEditorSnapshot,
+  );
+  const [detailsPreference, setDetailsPreference] = useState<boolean | null>(null);
+  const isDetailsOpen = detailsPreference ?? desktopDetailsDefault;
   const [previewHtml, setPreviewHtml] = useState(initialPost.contentHtml);
   const [isPreviewLoading, setIsPreviewLoading] = useState(false);
   const [isPublishing, setIsPublishing] = useState(false);
@@ -174,6 +200,8 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
   const slashStateRef = useRef<SlashCommandRenderState | null>(null);
   const slashSelectedIndexRef = useRef(0);
   const imageInputRef = useRef<HTMLInputElement>(null);
+  const previewButtonRef = useRef<HTMLButtonElement>(null);
+  const previewCloseRef = useRef<HTMLButtonElement>(null);
   const inFlightRef = useRef(false);
   const autosaveTimeoutRef = useRef<number | null>(null);
   const queuedPayloadRef = useRef<{
@@ -190,7 +218,7 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
       assets: PostAsset[];
     };
   } | null>(null);
-  const persistedSnapshotRef = useRef(
+  const [persistedSnapshot, setPersistedSnapshot] = useState(() =>
     createSnapshot({
       title: initialPost.title,
       slug: initialPost.slug,
@@ -203,6 +231,12 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
       assets: initialPost.assets ?? [],
     }),
   );
+
+  useEffect(() => {
+    if (isReady && !isAuthenticated) {
+      router.replace(`/login?next=${encodeURIComponent(pathname)}`);
+    }
+  }, [isAuthenticated, isReady, pathname, router]);
 
   const slashBridge = useMemo(() => ({
     items: slashCommandItems,
@@ -233,12 +267,14 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
   const editor = useEditor({
     immediatelyRender: false,
     autofocus: "end",
+    // The bridge reads its refs only when Tiptap dispatches an editor event.
+    // eslint-disable-next-line react-hooks/refs
     extensions: getClientExtensions(slashBridge),
     content: initialPost.contentJson,
     editorProps: {
       attributes: {
         class:
-          "editor-prosemirror min-h-[480px] w-full max-w-none rounded-[28px] px-2 py-4 text-[17px] leading-8 outline-none sm:px-4",
+          "min-h-[520px] w-full max-w-none px-1 py-5 text-[17px] leading-8 outline-none sm:px-3",
       },
     },
     onUpdate({ editor: currentEditor }) {
@@ -284,8 +320,10 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
   );
 
   const snapshot = useMemo(() => createSnapshot(payload), [payload]);
-  const isDirty = snapshot !== persistedSnapshotRef.current;
+  const isDirty = snapshot !== persistedSnapshot;
   const stats = useMemo(() => buildPostStats(plainText), [plainText]);
+  const visibleSaveState: SaveState =
+    isDirty && saveState === "saved" ? "idle" : saveState;
 
   const persistPost = useCallback(
     async (nextPayload: typeof payload) => {
@@ -316,7 +354,7 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
           throw new Error(result.error ?? "Failed to save the post.");
         }
 
-        persistedSnapshotRef.current = createSnapshot({
+        setPersistedSnapshot(createSnapshot({
           title: result.post.title,
           slug: result.post.slug,
           excerpt: result.post.excerpt,
@@ -325,7 +363,8 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
           contentHtml: result.post.contentHtml,
           plainText: result.post.plainText,
           status: result.post.status,
-        });
+          assets: result.post.assets ?? [],
+        }));
 
         setSaveState("saved");
         setLastSavedAt(result.post.updatedAt);
@@ -344,7 +383,7 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
         inFlightRef.current = false;
         if (
           queuedPayloadRef.current &&
-          queuedPayloadRef.current.snapshot !== persistedSnapshotRef.current
+          queuedPayloadRef.current.snapshot !== nextSnapshot
         ) {
           const queued = queuedPayloadRef.current;
           queuedPayloadRef.current = null;
@@ -359,7 +398,6 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
 
   useEffect(() => {
     if (!isDirty) return;
-    if (saveState !== "saving") setSaveState("idle");
 
     autosaveTimeoutRef.current = window.setTimeout(() => {
       void persistPost(payload);
@@ -371,7 +409,7 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
         autosaveTimeoutRef.current = null;
       }
     };
-  }, [isDirty, payload, persistPost, saveState]);
+  }, [isDirty, payload, persistPost]);
 
   useEffect(() => {
     if (!isDirty) return;
@@ -383,6 +421,39 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
     window.addEventListener("beforeunload", beforeUnload);
     return () => window.removeEventListener("beforeunload", beforeUnload);
   }, [isDirty]);
+
+  useEffect(() => {
+    if (!isPreview) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const previewButton = previewButtonRef.current;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsPreview(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    previewCloseRef.current?.focus();
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+      previewButton?.focus();
+    };
+  }, [isPreview]);
+
+  useEffect(() => {
+    if (!isDetailsOpen || !window.matchMedia("(max-width: 1279px)").matches) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isDetailsOpen]);
 
   useEffect(() => {
     if (!isPreview) return;
@@ -597,126 +668,51 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
 
   if (!isReady || !isAuthenticated) {
     return (
-      <div className="min-h-screen bg-[color:var(--background)] px-4 py-12">
-        <div className="mx-auto max-w-3xl rounded-[28px] border border-[color:var(--border)] bg-[color:var(--panel-strong)] p-6 text-center text-[color:var(--foreground)]">
-          Loading editor...
+      <div className="editor-workspace min-h-screen bg-[color:var(--background)] px-4 py-12">
+        <div className="mx-auto max-w-3xl border-y border-[color:var(--border)] py-8 text-center text-[color:var(--foreground)]">
+          Redirecting to sign in…
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[color:var(--background)] px-4 py-4 text-[color:var(--foreground)] sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col gap-5">
-        <header className="rounded-[28px] border border-slate-200 bg-white px-5 py-4 shadow-[0_18px_60px_-40px_rgba(15,23,42,0.12)]">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[color:var(--muted-foreground)]">
-                Writing desk
-              </p>
-              <div className="mt-2 flex flex-wrap items-center gap-3">
-                <h1 className="font-serif text-3xl tracking-tight sm:text-4xl">
-                  Blog editor
-                </h1>
-                <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                  {status}
-                </span>
+    <div className="editor-workspace min-h-screen bg-[color:var(--background)] px-4 py-6 text-[color:var(--foreground)] sm:px-6 sm:py-8">
+      <div className="mx-auto flex max-w-[80rem] flex-col gap-6">
+        <div className={`grid items-start gap-6 ${isDetailsOpen ? "xl:grid-cols-[minmax(0,1fr)_20rem]" : ""}`}>
+          <main className={`min-w-0 space-y-5 ${isDetailsOpen ? "" : "mx-auto w-full max-w-[67.5rem]"}`}>
+            <header className="border-b border-[color:var(--border)] pb-6">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--muted-foreground)]">
+                    Writing desk
+                  </p>
+                  <div className="mt-2 flex flex-wrap items-center gap-3">
+                    <h1 className="m-0 font-serif text-3xl tracking-[-0.025em] sm:text-4xl">
+                      Blog editor
+                    </h1>
+                    <span className="rounded-full border border-[color:var(--border)] bg-[color:var(--panel-soft)] px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-[color:var(--muted-foreground)]">
+                      {status}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm text-[color:var(--muted-foreground)]">
+                    Shape the draft, check the reading experience, then publish.
+                  </p>
+                </div>
+                {!isDetailsOpen ? (
+                  <button
+                    type="button"
+                    aria-controls="post-details-sidebar"
+                    aria-expanded="false"
+                    onClick={() => setDetailsPreference(true)}
+                    className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[color:var(--control-border)] bg-[color:var(--panel-strong)] px-4 py-2.5 font-mono text-xs font-medium transition hover:bg-[color:var(--panel-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--control-border-soft)]"
+                  >
+                    Post details
+                  </button>
+                ) : null}
               </div>
-              <p className="mt-2 text-sm text-[color:var(--muted-foreground)]">
-                Draft in structured JSON, preview with sanitized HTML, publish
-                to a public post route.
-              </p>
-            </div>
+            </header>
 
-            <div className="flex flex-wrap items-center gap-3">
-              <Link
-                href="/dashboard"
-                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
-              >
-                Dashboard
-              </Link>
-              {status === "published" && slug ? (
-                <Link
-                  href={`/blog/${slug}`}
-                  target="_blank"
-                  className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
-                >
-                  View live
-                </Link>
-              ) : null}
-              <button
-                type="button"
-                onClick={() => setIsPreview((current) => !current)}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-                  isPreview
-                    ? "bg-[color:var(--panel-inverse)] text-[color:var(--panel-inverse-foreground)]"
-                    : "border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
-                }`}
-              >
-                {isPreview ? "Back to edit" : "Preview"}
-              </button>
-              {status === "published" ? (
-                <button
-                  type="button"
-                  onClick={() => void handlePublish("draft")}
-                  disabled={isPublishing}
-                  className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  Revert to draft
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={() => void handlePublish("published")}
-                  disabled={isPublishing}
-                  className="rounded-full bg-[color:var(--brand-500)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--brand-600)] disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  {isPublishing ? "Publishing..." : "Publish"}
-                </button>
-              )}
-            </div>
-          </div>
-          {publishError ? (
-            <p className="mt-3 text-sm text-rose-600 dark:text-rose-300">
-              {publishError}
-            </p>
-          ) : null}
-        </header>
-
-        <PostMetadataForm
-          title={title}
-          slug={slug}
-          excerpt={excerpt}
-          coverImage={coverImage}
-          onTitleChange={(value) => {
-            setTitle(value);
-            if (!slugTouched) setSlug(slugify(value));
-          }}
-          onSlugChange={(value) => {
-            setSlugTouched(true);
-            setSlug(slugify(value));
-          }}
-          onExcerptChange={setExcerpt}
-          onCoverImageChange={removeCoverImage}
-          onCoverFileChange={(file) => void stageImage(file, "cover")}
-        />
-
-        {isPreview ? (
-          <div className="space-y-4">
-            {isPreviewLoading ? (
-              <div className="rounded-[24px] border border-[color:var(--border)] bg-[color:var(--panel-strong)] p-4 text-sm text-[color:var(--muted-foreground)]">
-                Refreshing preview...
-              </div>
-            ) : null}
-            <PreviewPane
-              title={title}
-              excerpt={excerpt}
-              coverImage={coverImage}
-              contentHtml={previewHtml}
-            />
-          </div>
-        ) : (
-          <>
             <EditorToolbar
               editor={editor}
               urlPanel={urlPanel}
@@ -733,9 +729,7 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
 
             <div className="relative">
               <EditorBubbleMenu editor={editor} onOpenLink={openLinkPanel} />
-              <EditorContent
-                editor={editor}
-              />
+              <EditorContent editor={editor} />
               <EditorSlashCommand
                 clientRect={slashState?.clientRect ?? null}
                 contextElement={editor?.view.dom ?? null}
@@ -744,16 +738,164 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
                 onSelect={(item) => slashState?.command(item)}
               />
             </div>
-          </>
-        )}
 
-        <EditorStatusBar
-          saveState={saveState}
-          lastSavedAt={lastSavedAt}
-          stats={stats}
-          isDirty={isDirty}
-          errorMessage={errorMessage}
-        />
+            <EditorStatusBar
+              saveState={visibleSaveState}
+              lastSavedAt={lastSavedAt}
+              stats={stats}
+              isDirty={isDirty}
+              errorMessage={errorMessage}
+            />
+          </main>
+
+          {isDetailsOpen ? (
+            <>
+              <button
+                type="button"
+                aria-label="Close post details"
+                onClick={() => setDetailsPreference(false)}
+                className="fixed inset-0 z-[1040] cursor-default bg-black/45 backdrop-blur-[2px] xl:hidden"
+              />
+              <aside
+                id="post-details-sidebar"
+                className="fixed inset-y-0 right-0 z-[1050] h-dvh w-[min(92vw,24rem)] overflow-y-auto border-l border-[color:var(--border)] bg-[color:var(--panel-strong)] p-5 shadow-2xl xl:sticky xl:top-[4.5rem] xl:z-auto xl:h-auto xl:max-h-[calc(100dvh-5.5rem)] xl:w-auto xl:rounded-[var(--radius-medium)] xl:border xl:shadow-none"
+              >
+                <div className="mb-5 flex items-start justify-between gap-4 border-b border-[color:var(--border)] pb-4">
+                  <div>
+                    <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-[color:var(--muted-foreground)]">
+                      Post details
+                    </p>
+                    <p className="mt-1 text-sm text-[color:var(--muted-foreground)]">
+                      Prepare and publish this article.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setDetailsPreference(false)}
+                    aria-label="Close post details"
+                    className="grid size-10 place-items-center rounded-full border border-[color:var(--border)] bg-[color:var(--panel-strong)] transition hover:bg-[color:var(--panel-soft)]"
+                  >
+                    <X aria-hidden="true" className="size-4" />
+                  </button>
+                </div>
+                <div className="mb-6 grid gap-2 border-b border-[color:var(--border)] pb-6">
+                  <button
+                    ref={previewButtonRef}
+                    type="button"
+                    onClick={() => setIsPreview(true)}
+                    className="w-full rounded-full border border-[color:var(--border)] bg-[color:var(--panel-strong)] px-4 py-2.5 text-sm font-semibold text-[color:var(--foreground)] transition hover:border-[color:var(--muted-foreground)] hover:bg-[color:var(--panel-soft)]"
+                  >
+                    Preview post
+                  </button>
+                  {status === "published" ? (
+                    <button
+                      type="button"
+                      onClick={() => void handlePublish("draft")}
+                      disabled={isPublishing}
+                      className="w-full rounded-full border border-[color:var(--border)] bg-[color:var(--panel-strong)] px-4 py-2.5 text-sm font-semibold text-[color:var(--foreground)] transition hover:border-[color:var(--muted-foreground)] hover:bg-[color:var(--panel-soft)] disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      {isPublishing ? "Updating…" : "Revert to draft"}
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => void handlePublish("published")}
+                      disabled={isPublishing}
+                      className="w-full rounded-full bg-[color:var(--panel-inverse)] px-4 py-2.5 text-sm font-semibold text-[color:var(--panel-inverse-foreground)] transition-opacity hover:opacity-75 disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      {isPublishing ? "Publishing…" : "Publish post"}
+                    </button>
+                  )}
+                  {status === "published" && slug ? (
+                    <Link
+                      href={`/blog/${slug}`}
+                      target="_blank"
+                      className="w-full rounded-full px-4 py-2 text-center text-sm font-medium text-[color:var(--muted-foreground)] transition hover:bg-[color:var(--panel-soft)] hover:opacity-100"
+                    >
+                      View live post ↗
+                    </Link>
+                  ) : null}
+                  {publishError ? (
+                    <p className="mt-1 text-sm text-[color:var(--danger-foreground)]">
+                      {publishError}
+                    </p>
+                  ) : null}
+                </div>
+                <PostMetadataForm
+                  compact
+                  title={title}
+                  slug={slug}
+                  excerpt={excerpt}
+                  coverImage={coverImage}
+                  onTitleChange={(value) => {
+                    setTitle(value);
+                    if (!slugTouched) setSlug(slugify(value));
+                  }}
+                  onSlugChange={(value) => {
+                    setSlugTouched(true);
+                    setSlug(slugify(value));
+                  }}
+                  onExcerptChange={setExcerpt}
+                  onCoverImageChange={removeCoverImage}
+                  onCoverFileChange={(file) => void stageImage(file, "cover")}
+                />
+              </aside>
+            </>
+          ) : null}
+        </div>
+
+        {isPreview ? (
+          <div
+            className="fixed inset-0 z-[1200] flex items-center justify-center bg-black/65 p-2 backdrop-blur-sm sm:p-5"
+            onMouseDown={(event) => {
+              if (event.target === event.currentTarget) setIsPreview(false);
+            }}
+          >
+            <section
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="editor-preview-title"
+              className="flex h-[calc(100dvh-1rem)] w-full max-w-[76rem] flex-col overflow-hidden rounded-[var(--radius-medium)] border border-[color:var(--border)] bg-[color:var(--panel-strong)] shadow-2xl sm:h-[calc(100dvh-2.5rem)]"
+            >
+              <header className="flex shrink-0 items-center justify-between border-b border-[color:var(--border)] bg-[color:var(--panel-strong)]/95 px-5 py-3 backdrop-blur-xl">
+                <div>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[color:var(--muted-foreground)]">
+                    Reading view
+                  </p>
+                  <h2 id="editor-preview-title" className="m-0 text-lg font-semibold">
+                    Post preview
+                  </h2>
+                </div>
+                <div className="flex items-center gap-3">
+                  {isPreviewLoading ? (
+                    <span className="font-mono text-xs text-[color:var(--muted-foreground)]">
+                      Refreshing…
+                    </span>
+                  ) : null}
+                  <button
+                    ref={previewCloseRef}
+                    type="button"
+                    onClick={() => setIsPreview(false)}
+                    aria-label="Close preview"
+                    className="grid size-10 place-items-center rounded-full border border-[color:var(--border)] bg-[color:var(--panel-strong)] transition hover:bg-[color:var(--panel-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--control-border-soft)]"
+                  >
+                    <X aria-hidden="true" className="size-4" />
+                  </button>
+                </div>
+              </header>
+              <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+                <PreviewPane
+                  modal
+                  title={title}
+                  excerpt={excerpt}
+                  coverImage={coverImage}
+                  contentHtml={previewHtml}
+                />
+              </div>
+            </section>
+          </div>
+        ) : null}
+
         <input
           ref={imageInputRef}
           type="file"
@@ -794,15 +936,11 @@ type AuthContextValue = {
 };
 
 const STORAGE_KEY = "waaxaa-user";
+const AUTH_CHANGE_EVENT = "waaxaa-auth-change";
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
-function readStoredUser() {
-  if (typeof window === "undefined") {
-    return null;
-  }
-
-  const raw = window.localStorage.getItem(STORAGE_KEY);
+function parseStoredUser(raw: string | null) {
   if (!raw) {
     return null;
   }
@@ -814,6 +952,28 @@ function readStoredUser() {
   }
 }
 
+function getAuthSnapshot() {
+  return window.localStorage.getItem(STORAGE_KEY) ?? "";
+}
+
+function getServerAuthSnapshot(): null {
+  return null;
+}
+
+function subscribeToAuth(onStoreChange: () => void) {
+  const handleStorage = (event: StorageEvent) => {
+    if (event.key === STORAGE_KEY) onStoreChange();
+  };
+
+  window.addEventListener("storage", handleStorage);
+  window.addEventListener(AUTH_CHANGE_EVENT, onStoreChange);
+
+  return () => {
+    window.removeEventListener("storage", handleStorage);
+    window.removeEventListener(AUTH_CHANGE_EVENT, onStoreChange);
+  };
+}
+
 function persistUser(user: MockUser | null) {
   if (typeof window === "undefined") {
     return;
@@ -821,10 +981,11 @@ function persistUser(user: MockUser | null) {
 
   if (!user) {
     window.localStorage.removeItem(STORAGE_KEY);
-    return;
+  } else {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
   }
 
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
+  window.dispatchEvent(new Event(AUTH_CHANGE_EVENT));
 }
 
 function buildUser(input: {
@@ -845,8 +1006,13 @@ function buildUser(input: {
 }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<MockUser | null>(() => readStoredUser());
-  const [isReady] = useState(true);
+  const storedUser = useSyncExternalStore(
+    subscribeToAuth,
+    getAuthSnapshot,
+    getServerAuthSnapshot,
+  );
+  const user = useMemo(() => parseStoredUser(storedUser), [storedUser]);
+  const isReady = storedUser !== null;
 
   const value = useMemo<AuthContextValue>(() => {
     return {
@@ -854,15 +1020,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       isAuthenticated: Boolean(user),
       isReady,
       login: (input) => {
-        const existing = readStoredUser();
+        const existing = parseStoredUser(getAuthSnapshot());
         const nextUser =
           existing && existing.email === input.email.trim().toLowerCase()
             ? existing
             : buildUser({ email: input.email });
 
-        startTransition(() => {
-          setUser(nextUser);
-        });
         persistUser(nextUser);
         return nextUser;
       },
@@ -873,16 +1036,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           role: input.role,
         });
 
-        startTransition(() => {
-          setUser(nextUser);
-        });
         persistUser(nextUser);
         return nextUser;
       },
       logout: () => {
-        startTransition(() => {
-          setUser(null);
-        });
         persistUser(null);
       },
     };

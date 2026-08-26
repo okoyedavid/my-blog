@@ -1,86 +1,83 @@
 import Link from "next/link";
+import { CategoryPill } from "@/components/blog/category-pill";
+import { categories } from "@/data/blogs";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Footer() {
   return (
-    <section className="section cc-footer">
-      <div className="container">
-        <div className="row cc-footer-top">
-          <div className="column">
-            <div className="u-display-flex cc-footer-left-wrap">
-              <div className="u-display-flex u-vertical">
+    <section className="relative overflow-hidden pb-0 pt-16">
+      <div className="mx-auto block w-[96%] max-w-[68rem]">
+        <div className="-mx-2 mb-8 flex flex-wrap content-stretch">
+          <div className="mb-8 flex-1 px-2">
+            <div className="flex h-full flex-col justify-between gap-8">
+              <div className="flex flex-col">
                 <Link
                   href="/"
                   aria-current="page"
-                  className="logo-wrap cc-footer w-nav-brand w--current"
+                  className="relative z-[99] block p-0 font-serif text-3xl font-bold leading-none tracking-[-0.025em]"
                 >
-                  <img
-                    src="https://cdn.prod.website-files.com/6524458df9ed19d52963b63d/6549aa4c8294cf1406cfc23f_The%20Post.svg"
-                    loading="lazy"
-                    alt=""
-                    className="logo"
-                  />
-                  <div className="u-screen-reader-only">Home page</div>
+                  Okoye’s Log
                 </Link>
                 <a
-                  href="https://www.emicorneau.com/"
+                  href="https://okoyedavid.com"
                   target="_blank"
-                  className="text-link w-inline-block"
+                  className="flex max-w-full gap-4 text-base transition-opacity hover:opacity-65"
                 >
-                  <div className="paragraph-0-9rem cc-emicorneau-link">
-                    by emicorneau
+                  <div className="mt-[0.66em] text-sm font-normal leading-[1.4] tracking-[-0.005em]">
+                    by David Okoye
                   </div>
                 </a>
               </div>
-              <div className="u-display-flex cc-footer-link-list-wrap">
-                <ul role="list" className="nav-list">
-                  <li className="nav-list-item">
+              <div className="flex items-start gap-2">
+                <ul role="list" className="flex list-none flex-col items-start gap-3 p-0">
+                  <li className="flex items-center gap-1 text-base leading-none">
                     <Link
                       href="/"
                       aria-current="page"
-                      className="u-font-cutive w--current"
+                      className="font-mono"
                     >
                       Home
                     </Link>
-                    <div className="text-link-arrow">→</div>
+                    <div className="text-sm">→</div>
                   </li>
-                  <li className="nav-list-item">
-                    <Link href="/about-us" className="u-font-cutive">
+                  <li className="flex items-center gap-1 text-base leading-none">
+                    <Link href="/about-us" className="font-mono">
                       About Us
                     </Link>
-                    <div className="text-link-arrow">→</div>
+                    <div className="text-sm">→</div>
                   </li>
-                  <li className="nav-list-item">
-                    <Link href="/contact-us" className="u-font-cutive">
+                  <li className="flex items-center gap-1 text-base leading-none">
+                    <Link href="/contact" className="font-mono">
                       Contact
                     </Link>
-                    <div className="text-link-arrow">→</div>
+                    <div className="text-sm">→</div>
                   </li>
                 </ul>
-                <div className="nav-list u-xsmall-hide">
-                  <div className="nav-list-item">
-                    <Link href="/all-blogs" className="u-font-cutive">
+                <div className="flex list-none flex-col items-start gap-3 p-0 max-sm:hidden">
+                  <div className="flex items-center gap-1 text-base leading-none">
+                    <Link href="/all-blogs" className="font-mono">
                       All Blogs
                     </Link>
-                    <div className="text-link-arrow">→</div>
+                    <div className="text-sm">→</div>
                   </div>
-                  <div className="w-dyn-list">
-                    <div role="list" className="nav-list w-dyn-items">
-                      <div role="listitem" className="nav-list-item w-dyn-item">
+                  <div>
+                    <div role="list" className="flex list-none flex-col items-start gap-3 p-0">
+                      <div role="listitem" className="flex items-center gap-1 text-base leading-none">
                         <Link
                           href="/tag/most-popular"
-                          className="nav-list-item w-inline-block"
+                          className="flex max-w-full items-center gap-1"
                         >
-                          <div className="u-font-cutive">Most Popular</div>
-                          <div className="text-link-arrow">→</div>
+                          <div className="font-mono">Most Popular</div>
+                          <div className="text-sm">→</div>
                         </Link>
                       </div>
-                      <div role="listitem" className="nav-list-item w-dyn-item">
+                      <div role="listitem" className="flex items-center gap-1 text-base leading-none">
                         <Link
                           href="/tag/featured-blogs"
-                          className="nav-list-item w-inline-block"
+                          className="flex max-w-full items-center gap-1"
                         >
-                          <div className="u-font-cutive">Featured Blogs</div>
-                          <div className="text-link-arrow">→</div>
+                          <div className="font-mono">Featured Blogs</div>
+                          <div className="text-sm">→</div>
                         </Link>
                       </div>
                     </div>
@@ -89,27 +86,26 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="column col-large-4 col-medium-12 u-medium-last">
-            <div className="newsletter-footer-wrap">
-              <div className="h2 cc-footer-newsletter">
+          <div className="order-last mb-8 w-full px-2 lg:max-w-[33.3333%] lg:basis-1/3">
+            <div>
+              <div className="mb-4 text-[2rem] font-medium leading-[1.1] tracking-[-0.01em]">
                 Subscribe to our weekly newsletter today
               </div>
-              <div className="u-margin-top-1em u-margin-bottom-0 w-form">
+              <div className="mb-[15px] mt-4">
                 <form
                   id="wf-form-Newsletter-Form"
                   name="wf-form-Newsletter-Form"
                   data-name="Newsletter Form"
                   method="get"
-                  className="footer-newsletter-wrap"
                   data-wf-page-id="6524458df9ed19d52963b640"
                   data-wf-element-id="01be6d1d-102d-b0c8-3d0d-69ad6264842a"
                 >
-                  <div className="u-width-100">
-                    <label htmlFor="newsletter_email" className="h4 cc-label">
+                  <div className="w-full">
+                    <label htmlFor="newsletter_email" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
                       Email Address
                     </label>
                     <input
-                      className="text-field u-margin-bottom-1em w-input"
+                      className="mb-3 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
                       maxLength={256}
                       name="Email"
                       data-name="Email"
@@ -119,13 +115,13 @@ export default function Footer() {
                       required
                     />
                   </div>
-                  <div className="u-width-100">
-                    <label htmlFor="name" className="h4 cc-label">
+                  <div className="w-full">
+                    <label htmlFor="name" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
                       Full Name
                     </label>
-                    <div className="u-display-flex cc-form-submit-wrap">
+                    <div className="flex gap-1">
                       <input
-                        className="text-field u-margin-bottom-0 w-input"
+                        className="mb-0 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
                         maxLength={256}
                         name="Full-name"
                         data-name="Full name"
@@ -137,21 +133,21 @@ export default function Footer() {
                       <input
                         type="submit"
                         data-wait="Please wait..."
-                        className="button cc-form w-button"
+                        className="inline-block cursor-pointer rounded-full bg-[var(--black)] px-4 py-[0.66em] font-mono text-base leading-none text-[var(--white)] transition-opacity hover:opacity-50"
                         value="Submit"
                       />
                     </div>
                   </div>
                 </form>
-                <div className="success-message w-form-done">
-                  <div className="paragraph-1-25rem">
+                <div className="hidden rounded-2xl bg-[var(--black-5)] p-5 text-center">
+                  <div className="text-xl leading-[1.3] tracking-[-0.01em]">
                     Thank you! <br />
                   </div>
-                  <div className="paragraph-0-9rem">
+                  <div className="text-sm leading-[1.4] tracking-[-0.005em]">
                     Your submission has been received!
                   </div>
                 </div>
-                <div className="w-form-fail">
+                <div className="mt-2.5 hidden bg-[var(--danger-bg)] p-2.5 text-[var(--danger-foreground)]">
                   <div>
                     Oops! Something went wrong while submitting the form.
                   </div>
@@ -159,118 +155,74 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="column col-large-4 col-medium-12">
-            <div className="footer-category-pill-wrap w-dyn-list">
-              <div role="list" className="pill-grid cc-footer w-dyn-items">
-                <div role="listitem" className="w-dyn-item">
-                  <div className="u-display-inline-block">
-                    <Link
-                      //   style="background-color: #c3c0d8"
-                      href="/category/business"
-                      className="pill cc-footer"
-                    >
-                      Business
-                    </Link>
+          <div className="mb-8 w-full px-2 lg:max-w-[33.3333%] lg:basis-1/3">
+            <div className="flex h-full items-end">
+              <div role="list" className="ml-4 flex flex-wrap gap-x-1 gap-y-2">
+                {categories.map((category) => (
+                  <div role="listitem" key={category.slug}>
+                    <CategoryPill category={category.slug} linked size="footer" />
                   </div>
-                </div>
-                <div role="listitem" className="w-dyn-item">
-                  <div className="u-display-inline-block">
-                    <Link
-                      //   style="background-color: #ece9d7"
-                      href="/category/politics"
-                      className="pill cc-footer"
-                    >
-                      Politics
-                    </Link>
-                  </div>
-                </div>
-                <div role="listitem" className="w-dyn-item">
-                  <div className="u-display-inline-block">
-                    <Link
-                      //   style="background-color: #dfcccc"
-                      href="/category/sports"
-                      className="pill cc-footer"
-                    >
-                      Sports
-                    </Link>
-                  </div>
-                </div>
-                <div role="listitem" className="w-dyn-item">
-                  <div className="u-display-inline-block">
-                    <Link
-                      //   style="background-color: #c0d2d8"
-                      href="/category/technology"
-                      className="pill cc-footer"
-                    >
-                      Technology
-                    </Link>
-                  </div>
-                </div>
-                <div role="listitem" className="w-dyn-item">
-                  <div className="u-display-inline-block">
-                    <Link
-                      //   style="background-color: #d0d8c0"
-                      href="/category/world"
-                      className="pill cc-footer"
-                    >
-                      World
-                    </Link>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="container cc-nav-footer">
-        <div className="row row-justify-between row-align-center">
-          <div className="column col-large-10 col-medium-12">
-            <div className="u-display-flex cc-footer-template-link-wrap">
+      <div className="mx-auto block w-[96%] max-w-[68rem] py-4">
+        <div className="-mx-2 -mb-8 flex flex-wrap content-stretch items-center justify-between">
+          <div className="mb-8 max-w-[83.3333%] flex-[1_1_83.33%] px-2">
+            <div className="inline-flex w-full flex-wrap items-center">
               <a
-                href="https://webflow.com"
+                href="https://okoyedavid.com"
                 target="_blank"
-                className="webflow-link w-inline-block"
+                rel="noreferrer"
+                className="mr-4 inline-block max-w-full text-left text-sm font-semibold tracking-[-0.025em]"
               >
-                <div>Powered by Webflow</div>
+                <div>David Okoye</div>
               </a>
               <a
-                href="/template/style-guide"
-                className="text-link w-inline-block"
+                href="/about-us"
+                className="flex max-w-full gap-4 text-base transition-opacity hover:opacity-65"
               >
-                <div className="paragraph-0-9rem u-font-cutive">
-                  Style Guide
+                <div className="font-mono text-sm leading-[1.4] tracking-[-0.005em]">
+                  About
                 </div>
               </a>
-              <div className="h4 cc-tag-separator">/</div>
-              <a href="/template/licenses" className="w-inline-block">
-                <div className="paragraph-0-9rem u-font-cutive">Licenses</div>
+              <div className="mx-[0.2em] inline font-mono text-[1.1rem] leading-none tracking-[-0.05em]">/</div>
+              <a href="/all-blogs" className="inline-block max-w-full">
+                <div className="font-mono text-sm leading-[1.4] tracking-[-0.005em]">Articles</div>
               </a>
-              <div className="h4 cc-tag-separator">/</div>
+              <div className="mx-[0.2em] inline font-mono text-[1.1rem] leading-none tracking-[-0.05em]">/</div>
               <a
-                href="/template/changelog"
-                className="text-link w-inline-block"
+                href="https://github.com/okoyedavid"
+                target="_blank"
+                rel="noreferrer"
+                className="flex max-w-full gap-4 text-base transition-opacity hover:opacity-65"
               >
-                <div className="paragraph-0-9rem u-font-cutive">Changelog</div>
+                <div className="font-mono text-sm leading-[1.4] tracking-[-0.005em]">GitHub</div>
               </a>
-              <div className="h4 cc-tag-separator">/</div>
+              <div className="mx-[0.2em] inline font-mono text-[1.1rem] leading-none tracking-[-0.05em]">/</div>
               <a
-                href="/template/instructions"
-                className="text-link w-inline-block"
+                href="https://www.linkedin.com/in/okoyedavid7"
+                target="_blank"
+                rel="noreferrer"
+                className="flex max-w-full gap-4 text-base transition-opacity hover:opacity-65"
               >
-                <div className="paragraph-0-9rem u-font-cutive">
-                  Instructions
+                <div className="font-mono text-sm leading-[1.4] tracking-[-0.005em]">
+                  LinkedIn
                 </div>
               </a>
             </div>
           </div>
-          <div className="column col-shrink">
-            <div className="u-display-flex cc-footer-social-wrap">
+          <div className="mb-8 flex-[0_auto] px-2">
+                    <div className="flex items-center justify-end gap-2">
+              <ThemeToggle />
               <a
-                href="https://instagram.com"
+                href="https://okoyedavid.com"
                 target="_blank"
-                className="w-inline-block"
+                className="hidden"
               >
-                <div className="icon cc-social-media w-embed">
+                <div className="inline-block size-full max-h-8 max-w-8 origin-center scale-[0.85]">
                   <svg
                     width="100%"
                     height="100%"
@@ -296,14 +248,15 @@ export default function Footer() {
                     />
                   </svg>
                 </div>
-                <div className="u-screen-reader-only">Instagram icon</div>
+                <div className="sr-only">David Okoye portfolio</div>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/okoyedavid7"
                 target="_blank"
-                className="w-inline-block"
+                rel="noreferrer"
+                className="inline-block max-w-full"
               >
-                <div className="icon cc-social-media w-embed">
+                <div className="inline-block size-full max-h-8 max-w-8 origin-center scale-[0.85]">
                   <svg
                     width="100%"
                     height="100%"
@@ -319,14 +272,14 @@ export default function Footer() {
                     />
                   </svg>
                 </div>
-                <div className="u-screen-reader-only">Linkedin icon</div>
+                <div className="sr-only">Linkedin icon</div>
               </a>
               <a
-                href="https://facebook.com"
+                href="https://github.com/okoyedavid"
                 target="_blank"
-                className="w-inline-block"
+                className="hidden"
               >
-                <div className="icon cc-social-media w-embed">
+                <div className="inline-block size-full max-h-8 max-w-8 origin-center scale-[0.85]">
                   <svg
                     width="100%"
                     height="100%"
@@ -342,7 +295,7 @@ export default function Footer() {
                     />
                   </svg>
                 </div>
-                <div className="u-screen-reader-only">Facebook icon</div>
+                <div className="sr-only">David Okoye on GitHub</div>
               </a>
             </div>
           </div>

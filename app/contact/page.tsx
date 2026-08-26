@@ -3,9 +3,15 @@ import ContactFooter from "@/features/contact/contact-footer";
 import ContactHero from "@/features/contact/contact-hero";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact David Okoye",
   description:
-    "Contact ThePost team in Montreal with story ideas, questions, feedback or partnership enquiries.",
+    "Contact David Okoye with questions, feedback, project ideas, or collaboration enquiries.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    url: "/contact",
+    title: "Contact David Okoye",
+    description: "Contact David Okoye with questions, feedback, project ideas, or collaboration enquiries.",
+  },
 };
 
 export default function Page() {

@@ -1,18 +1,25 @@
-import FeaturedBlogsHero from "@/features/tag/featured-blogs-hero";
-import FeaturedBlogsList from "@/features/tag/featured-blogs-list";
+import type { Metadata } from "next";
+import { CollectionPage } from "@/components/blog/collection-page";
+import { blogCollections } from "@/data/blogs";
 
 export const metadata: Metadata = {
   title: "Featured Blogs",
   description:
-    "Read ThePost's featured reporting and selected stories about Montreal's people, culture, business and events.",
+    "Read featured technical notes and selected project stories from Okoye’s Log.",
+  alternates: { canonical: "/tag/featured-blogs" },
+  openGraph: {
+    url: "/tag/featured-blogs",
+    title: "Featured Blogs",
+    description: "Read featured technical notes and selected project stories from Okoye’s Log.",
+  },
 };
 
 export default function Page() {
   return (
-    <>
-      <FeaturedBlogsHero />
-      <FeaturedBlogsList />
-    </>
+    <CollectionPage
+      title="Featured Blogs"
+      posts={blogCollections.featured}
+      active="featured"
+    />
   );
 }
-import type { Metadata } from "next";

@@ -5,9 +5,13 @@ import Hero from "@/features/landing/hero";
 import Recent from "@/features/landing/recent";
 
 export const metadata: Metadata = {
-  title: { absolute: "ThePost — Your Gateway to the Heart of Montreal" },
+  title: { absolute: "Okoye’s Log — Technical Notes and Project Stories" },
   description:
-    "Explore the latest Montreal stories, featured reporting, local categories and recent news from ThePost.",
+    "Technical notes, project write-ups, and lessons from building software by David Okoye.",
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": "/rss.xml" },
+  },
 };
 
 export default function Home() {

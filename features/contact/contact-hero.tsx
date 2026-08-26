@@ -1,19 +1,19 @@
 export default function ContactHero() {
   return (
     <>
-      <section className="section u-padding-bottom-0">
-        <div className="container">
-          <h1 className="u-margin-top-0">Contact Us</h1>
-          <div className="u-max-width-32rem">
-            <div className="paragraph-1-5rem">
-              Get in touch today and join the conversation. Don &#x27;t be shy,
-              say hi!
+      <section className="relative pb-0 pt-24">
+        <div className="mx-auto block w-[96%] max-w-[68rem]">
+          <h1 className="mt-0">Contact David</h1>
+          <div className="max-w-lg">
+            <div className="text-2xl leading-[1.35] tracking-[-0.01em]">
+              Have a question about a post, a project idea, or something worth
+              building together? Send me a message.
             </div>
           </div>
         </div>
       </section>
-      <section className="section u-padding-0">
-        <div className="container"></div>
+      <section className="relative p-0">
+        <div className="mx-auto block w-[96%] max-w-[68rem]"></div>
       </section>
     </>
   );

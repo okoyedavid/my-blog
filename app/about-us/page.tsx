@@ -1,11 +1,16 @@
 import AboutContent from "@/features/about/about-content";
 import AboutHero from "@/features/about/about-hero";
-import Team from "@/features/about/Team";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About David Okoye",
   description:
-    "Meet ThePost team and learn about our mission to deliver accurate, impartial and engaging journalism about Montreal.",
+    "Learn about David Okoye and the thinking behind Okoye’s Log.",
+  alternates: { canonical: "/about-us" },
+  openGraph: {
+    url: "/about-us",
+    title: "About David Okoye",
+    description: "Learn about David Okoye and the thinking behind Okoye’s Log.",
+  },
 };
 
 export default function About() {
@@ -13,7 +18,6 @@ export default function About() {
     <>
       <AboutHero />
       <AboutContent />
-      <Team />
     </>
   );
 }

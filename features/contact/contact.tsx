@@ -1,29 +1,27 @@
 export default function Contact() {
   return (
-    <section className="section">
-      <div className="container">
-        <div className="row row-justify-between">
-          <div className="column col-large-4 col-medium-12">
-            <div className="row u-medium-margin-bottom-3em">
-              <div className="column col-large-12 col-medium-6 col-xsmall-12">
-                <h2 className="h4 u-margin-top-0">Location</h2>
-                <div className="u-margin-bottom-1em">
-                  1243 Imaginaire Street
-                </div>
-                <div className="u-margin-bottom-1em">Montreal, QC H0H 0H0</div>
-                <div>Canada</div>
+    <section className="relative py-24">
+      <div className="mx-auto block w-[96%] max-w-[68rem]">
+        <div className="-mx-2 -mb-8 flex flex-wrap content-stretch justify-between">
+          <div className="mb-8 w-full px-2 lg:max-w-[33.3333%] lg:basis-1/3">
+            <div className="-mx-2 -mb-8 flex flex-wrap content-stretch max-lg:mb-12">
+              <div className="mb-8 w-full px-2 md:max-w-[50%] md:basis-1/2 lg:max-w-full lg:basis-full">
+                <h2 className="mt-0 font-mono text-[1.1rem] leading-none tracking-[-0.05em]">Location</h2>
+                <div className="mb-4">Abuja</div>
+                <div>Nigeria</div>
               </div>
-              <div className="column col-large-12 col-medium-6 col-xsmall-12">
-                <h2 className="h4">Info</h2>
-                <div className="u-margin-bottom-1em">contact@thepost.com</div>
-                <div className="u-margin-bottom-1em">514-333-4563</div>
-                <div className="u-display-flex cc-contact-social-wrap">
+              <div className="mb-8 w-full px-2 md:max-w-[50%] md:basis-1/2 lg:max-w-full lg:basis-full">
+                <h2 className="my-2.5 font-mono text-[1.1rem] leading-none tracking-[-0.05em]">Info</h2>
+                <a className="mb-4 block" href="mailto:okoyedav7@gmail.com">okoyedav7@gmail.com</a>
+                <a className="mb-4 block" href="tel:+2349163808118">+234 916 380 8118</a>
+                <a className="mb-4 block" href="https://github.com/okoyedavid" target="_blank" rel="noreferrer">GitHub ↗</a>
+                <div className="mt-8 flex gap-1">
                   <a
-                    href="https://instagram.com"
+                    href="https://okoyedavid.com"
                     target="_blank"
-                    className="w-inline-block"
+                    className="hidden"
                   >
-                    <div className="icon cc-social-media w-embed">
+                    <div className="inline-block size-full max-h-8 max-w-8 origin-center scale-[0.85]">
                       <svg
                         width="100%"
                         height="100%"
@@ -49,14 +47,15 @@ export default function Contact() {
                         />
                       </svg>
                     </div>
-                    <div className="u-screen-reader-only">Instagram icon</div>
+                    <div className="sr-only">David Okoye portfolio</div>
                   </a>
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/okoyedavid7"
                     target="_blank"
-                    className="w-inline-block"
+                    rel="noreferrer"
+                    className="inline-block max-w-full"
                   >
-                    <div className="icon cc-social-media w-embed">
+                    <div className="inline-block size-full max-h-8 max-w-8 origin-center scale-[0.85]">
                       <svg
                         width="100%"
                         height="100%"
@@ -72,14 +71,14 @@ export default function Contact() {
                         />
                       </svg>
                     </div>
-                    <div className="u-screen-reader-only">Linkedin icon</div>
+                    <div className="sr-only">Linkedin icon</div>
                   </a>
                   <a
-                    href="https://facebook.com"
+                    href="https://github.com/okoyedavid"
                     target="_blank"
-                    className="w-inline-block"
+                    className="hidden"
                   >
-                    <div className="icon cc-social-media w-embed">
+                    <div className="inline-block size-full max-h-8 max-w-8 origin-center scale-[0.85]">
                       <svg
                         width="100%"
                         height="100%"
@@ -95,14 +94,14 @@ export default function Contact() {
                         />
                       </svg>
                     </div>
-                    <div className="u-screen-reader-only">Facebook icon</div>
+                    <div className="sr-only">David Okoye on GitHub</div>
                   </a>
                 </div>
               </div>
             </div>
           </div>
-          <div className="column col-large-8 col-medium-12">
-            <div className="w-form">
+          <div className="mb-8 w-full px-2 lg:max-w-[66.6667%] lg:basis-2/3">
+            <div className="mb-[15px]">
               <form
                 id="wf-form-Contact-Form"
                 name="wf-form-Contact-Form"
@@ -111,13 +110,13 @@ export default function Contact() {
                 data-wf-page-id="6531445adca2e84c7f1e3800"
                 data-wf-element-id="4ff36266-707a-667e-fe6f-e7f127052198"
               >
-                <div className="u-display-flex cc-form-field-wrap">
-                  <div className="u-width-100">
-                    <label htmlFor="Name" className="h4 cc-label">
+                <div className="mb-4 flex gap-4">
+                  <div className="w-full">
+                    <label htmlFor="Name" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
                       Name
                     </label>
                     <input
-                      className="text-field w-input"
+                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
                       maxLength={256}
                       name="Name"
                       data-name="Name"
@@ -127,12 +126,12 @@ export default function Contact() {
                       required
                     />
                   </div>
-                  <div className="u-width-100">
-                    <label htmlFor="Last-Name" className="h4 cc-label">
+                  <div className="w-full">
+                    <label htmlFor="Last-Name" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
                       Last Name
                     </label>
                     <input
-                      className="text-field w-input"
+                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
                       maxLength={256}
                       name="Last-Name"
                       data-name="Last Name"
@@ -142,13 +141,13 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-                <div className="u-display-flex cc-form-field-wrap">
-                  <div className="u-width-100">
-                    <label htmlFor="Email-Address-2" className="h4 cc-label">
+                <div className="mb-4 flex gap-4">
+                  <div className="w-full">
+                    <label htmlFor="Email-Address-2" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
                       Email address
                     </label>
                     <input
-                      className="text-field w-input"
+                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
                       maxLength={256}
                       name="Email-Address"
                       data-name="Email Address"
@@ -158,12 +157,12 @@ export default function Contact() {
                       required
                     />
                   </div>
-                  <div className="u-width-100">
-                    <label htmlFor="Phone-Number" className="h4 cc-label">
+                  <div className="w-full">
+                    <label htmlFor="Phone-Number" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
                       Phone number
                     </label>
                     <input
-                      className="text-field w-input"
+                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
                       maxLength={256}
                       name="Phone-Number"
                       data-name="Phone Number"
@@ -173,12 +172,12 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-                <div className="u-margin-bottom-1em">
-                  <label htmlFor="Subject" className="h4 cc-label">
+                <div className="mb-4">
+                  <label htmlFor="Subject" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
                     Subject
                   </label>
                   <input
-                    className="text-field w-input"
+                    className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
                     maxLength={256}
                     name="Subject"
                     data-name="Subject"
@@ -188,8 +187,8 @@ export default function Contact() {
                     required
                   />
                 </div>
-                <div className="u-margin-bottom-1em">
-                  <label htmlFor="Message" className="h4 cc-label">
+                <div className="mb-4">
+                  <label htmlFor="Message" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
                     Message
                   </label>
                   <textarea
@@ -199,23 +198,23 @@ export default function Contact() {
                     data-name="Message"
                     placeholder="Your message ..."
                     required
-                    className="text-field cc-message w-input"
+                    className="mb-1 block min-h-48 w-full rounded-2xl border border-transparent bg-[var(--control-bg)] p-4 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
                   ></textarea>
                 </div>
                 <input
                   type="submit"
                   data-wait="Please wait..."
-                  className="button w-button"
+                  className="inline-block cursor-pointer rounded-full bg-[var(--black)] px-4 py-[0.66em] font-mono text-base leading-none text-[var(--white)] transition-opacity hover:opacity-50"
                   value="Submit"
                 />
               </form>
-              <div className="success-message w-form-done">
-                <div className="paragraph-1-25rem">Thank you!</div>
-                <div className="paragraph-0-9rem">
+              <div className="hidden rounded-2xl bg-[var(--black-5)] p-5 text-center">
+                <div className="text-xl leading-[1.3] tracking-[-0.01em]">Thank you!</div>
+                <div className="text-sm leading-[1.4] tracking-[-0.005em]">
                   Your submission has been received!
                 </div>
               </div>
-              <div className="error w-form-fail">
+              <div className="mt-2.5 hidden rounded-2xl bg-[var(--danger-bg)] p-8 text-[var(--danger-foreground)]">
                 <div>Oops! Something went wrong while submitting the form.</div>
               </div>
             </div>

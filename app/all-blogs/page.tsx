@@ -1,18 +1,19 @@
-import AllBlogHero from "@/features/all-blogs/all-blog-hero";
-import BlogList from "@/features/all-blogs/blog-list";
+import type { Metadata } from "next";
+import { CollectionPage } from "@/components/blog/collection-page";
+import { blogCollections } from "@/data/blogs";
 
 export const metadata: Metadata = {
   title: "All Blogs",
   description:
-    "Browse every story from ThePost, including Montreal news, business, culture, events and local city life.",
+    "Browse every technical note, project write-up, and software lesson on Okoye’s Log.",
+  alternates: { canonical: "/all-blogs" },
+  openGraph: {
+    url: "/all-blogs",
+    title: "All Blogs",
+    description: "Browse every technical note, project write-up, and software lesson on Okoye’s Log.",
+  },
 };
 
 export default function Page() {
-  return (
-    <div>
-      <AllBlogHero />
-      <BlogList />
-    </div>
-  );
+  return <CollectionPage title="All blogs" posts={blogCollections.all} active="all" />;
 }
-import type { Metadata } from "next";

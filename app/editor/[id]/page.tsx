@@ -16,8 +16,8 @@ export async function generateMetadata({
   return {
     title: post?.title ? `Edit: ${post.title}` : "Untitled Draft",
     description: post?.title
-      ? `Edit the “${post.title}” article in ThePost editor.`
-      : "Edit an article draft in ThePost editor.",
+      ? `Edit the “${post.title}” article in the Okoye’s Log editor.`
+      : "Edit an article draft in the Okoye’s Log editor.",
     robots: { index: false, follow: false },
   };
 }

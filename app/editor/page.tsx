@@ -3,7 +3,7 @@ import { createPost } from "@/lib/posts/repository";
 
 export const metadata: Metadata = {
   title: "New Draft",
-  description: "Create a new article draft in ThePost editor.",
+  description: "Create a new article draft in the Okoye’s Log editor.",
   robots: { index: false, follow: false },
 };
 

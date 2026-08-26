@@ -1,40 +1,40 @@
+import Image from "next/image";
+
 export default function AboutHero() {
   return (
     <>
-      <section className="section u-padding-bottom-0 u-xsmall-paddin-top-3em">
-        <div className="container">
-          <h1 className="h1 u-margin-0">About Us</h1>
+      <section className="relative pb-0 pt-24 max-sm:pt-12">
+        <div className="mx-auto block w-[96%] max-w-[68rem]">
+          <h1 className="m-0 font-serif text-[clamp(4rem,10vw,7rem)] font-bold leading-[1.04] tracking-[-0.025em]">
+            About David
+          </h1>
         </div>
       </section>
-      <section className="section u-padding-top-3em">
-        <div className="container">
-          <div className="row row-align-center row-justify-between">
-            <div className="column col-large-6 col-medium-12">
+      <section className="relative pb-24 pt-12">
+        <div className="mx-auto block w-[96%] max-w-[68rem]">
+          <div className="-mx-2 -mb-8 flex flex-wrap content-stretch items-center justify-between">
+            <div className="mb-8 w-full px-2 lg:max-w-[50%] lg:basis-1/2">
               <h2>
-                Elevating journalism
-                <span className="h2-span">through integrity</span>
+                I build secure products and
+                <span className="block font-serif font-normal italic tracking-[-0.02em]">
+                  dependable business systems.
+                </span>
               </h2>
-              <p className="paragraph-1em u-margin-top-1em">
-                We uphold unwavering integrity, maintaining the highest
-                standards of accuracy, impartiality, and transparency in our
-                journalism. Our commitment to reliable, unbiased reporting
-                ensures that our readers can trust the news we provide, backed
-                by thorough research and devoid of bias or sensationalism.
+              <p className="mt-4 text-base leading-7">
+                I’m a full-stack TypeScript developer working across React, Next.js,
+                Node.js, authentication, multi-tenant permissions, APIs, and the
+                workflows that keep software useful after launch.
               </p>
             </div>
-            <div className="column col-large-5 col-medium-12">
-              <div className="u-aspect-1x1 u-radius-medium">
-                <img
-                  src="https://cdn.prod.website-files.com/6524458df9ed19d52963b63d/65469f63f033546e8f7608dd_mp-about-compressed.webp"
-                  loading="eager"
-                  sizes="(max-width: 1024px) 100vw, 1024px"
-                  srcSet="
-                    https://cdn.prod.website-files.com/6524458df9ed19d52963b63d/65469f63f033546e8f7608dd_mp-about-compressed-p-500.webp  500w,
-                    https://cdn.prod.website-files.com/6524458df9ed19d52963b63d/65469f63f033546e8f7608dd_mp-about-compressed-p-800.webp  800w,
-                    https://cdn.prod.website-files.com/6524458df9ed19d52963b63d/65469f63f033546e8f7608dd_mp-about-compressed.webp       1024w
-                  "
-                  alt="3 coworkers in a brick office with books in the background "
-                  className="u-image-cover"
+            <div className="mb-8 w-full px-2 lg:max-w-[41.6667%] lg:basis-[41.67%]">
+              <div className="relative aspect-square w-full overflow-hidden rounded-2xl">
+                <Image
+                  fill
+                  priority
+                  src="https://okoyedavid.com/images/engineering-mindset.jpg"
+                  alt="David Okoye working on software engineering projects"
+                  sizes="(max-width: 1024px) 96vw, 42vw"
+                  className="object-cover"
                 />
               </div>
             </div>

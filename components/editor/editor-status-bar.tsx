@@ -32,16 +32,16 @@ export function EditorStatusBar({
     : null;
 
   return (
-    <div className="rounded-[24px] border border-slate-200 bg-white px-4 py-3 shadow-[0_18px_60px_-40px_rgba(15,23,42,0.12)]">
+    <div className="border-t border-[color:var(--border)] px-1 py-4">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-3 text-sm">
           <span
             className={`rounded-full px-3 py-1 font-medium ${
               saveState === "error"
-                ? "bg-rose-100 text-rose-700 dark:bg-rose-950/60 dark:text-rose-200"
+                ? "bg-[color:var(--danger-bg)] text-[color:var(--danger-foreground)]"
                 : saveState === "saving"
-                  ? "bg-amber-100 text-amber-700 dark:bg-amber-950/60 dark:text-amber-200"
-                  : "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-200"
+                  ? "bg-[color:var(--warning-bg)] text-[color:var(--warning-foreground)]"
+                  : "bg-[color:var(--success-bg)] text-[color:var(--success-foreground)]"
             }`}
           >
             {saveStateLabel[saveState]}
@@ -66,7 +66,7 @@ export function EditorStatusBar({
       </div>
 
       {errorMessage ? (
-        <p className="mt-3 text-sm text-rose-600 dark:text-rose-300">{errorMessage}</p>
+        <p className="mt-3 text-sm text-[color:var(--danger-foreground)]">{errorMessage}</p>
       ) : null}
     </div>
   );

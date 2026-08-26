@@ -1,10 +1,35 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { CategoryPill } from "@/components/blog/category-pill";
+import ThemeToggle from "@/components/ThemeToggle";
+import { categories } from "@/data/blogs";
 
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [isMenuOpen]);
+
   return (
     <div
       data-animation="over-left"
-      className="nav w-nav"
+      className="sticky top-0 z-[999]  bg-[var(--white)]/90 py-3 backdrop-blur-xl"
       data-easing2="ease"
       data-easing="ease-out-cubic"
       data-collapse="all"
@@ -14,88 +39,65 @@ export default function Navbar() {
       data-duration="600"
       data-doc-height="1"
     >
-      <div className="container cc-navbar w-container">
-        <div className="nav-wrap">
+      <div className="relative z-[2] mx-auto block w-[96%] max-w-[68rem]">
+        <div className="flex items-center justify-between gap-4">
           <Link
             href="/"
             aria-current="page"
-            className="logo-wrap w-nav-brand w--current"
+            className="relative z-[99] block p-0 font-serif text-2xl font-bold leading-none tracking-[-0.025em]"
           >
-            <img
-              src="https://cdn.prod.website-files.com/6524458df9ed19d52963b63d/6549aa4c8294cf1406cfc23f_The%20Post.svg"
-              loading="lazy"
-              alt=""
-              className="logo"
-            />
-            <div className="u-screen-reader-only">Home page</div>
+            Okoye’s Log
           </Link>
-          <div className="u-display-flex cc-nav-wrap">
-            <div className="u-medium-hide w-dyn-list">
-              <div role="list" className="u-display-flex u-gap-6px w-dyn-items">
-                <div role="listitem" className="w-dyn-item">
-                  <a
-                    // style="background-color: #c3c0d8"
-                    href="/category/business"
-                    className="pill w-inline-block"
+          <div className="relative z-[99] flex min-w-0 items-center justify-end gap-2">
+            <nav aria-label="Featured collections" className="max-lg:hidden">
+              <ul className="m-0 flex list-none flex-row items-center gap-1 p-0">
+                <li>
+                  <Link
+                    href="/all-blogs"
+                    className="rounded-full px-3 py-2 font-mono text-xs font-medium tracking-[-0.02em] hover:bg-[var(--control-bg)] hover:opacity-100"
                   >
-                    <div>Business</div>
-                  </a>
-                </div>
-                <div role="listitem" className="w-dyn-item">
-                  <a
-                    // style="background-color: #ece9d7"
-                    href="/category/politics"
-                    className="pill w-inline-block"
+                    All Blogs
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/tag/featured-blogs"
+                    className="rounded-full px-3 py-2 font-mono text-xs font-medium tracking-[-0.02em] hover:bg-[var(--control-bg)] hover:opacity-100"
                   >
-                    <div>Politics</div>
-                  </a>
-                </div>
-                <div role="listitem" className="w-dyn-item">
-                  <a
-                    // style="background-color: #dfcccc"
-                    href="/category/sports"
-                    className="pill w-inline-block"
+                    Featured Blogs
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/tag/most-popular"
+                    className="rounded-full px-3 py-2 font-mono text-xs font-medium tracking-[-0.02em] hover:bg-[var(--control-bg)] hover:opacity-100"
                   >
-                    <div>Sports</div>
-                  </a>
-                </div>
-                <div role="listitem" className="w-dyn-item">
-                  <a
-                    // style="background-color: #c0d2d8"
-                    href="/category/technology"
-                    className="pill w-inline-block"
-                  >
-                    <div>Technology</div>
-                  </a>
-                </div>
-                <div role="listitem" className="w-dyn-item">
-                  <a
-                    // style="background-color: #d0d8c0"
-                    href="/category/world"
-                    className="pill w-inline-block"
-                  >
-                    <div>World</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="u-display-flex cc-search-and-menu-wrap">
-              <form action="/search" className="search w-form">
+                    Most Popular
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+            <div className="flex min-w-0 items-center justify-end gap-2">
+              <form
+                action="/search"
+                role="search"
+                className="relative mb-0 w-28 sm:w-52 xl:w-60"
+              >
                 <input
-                  className="text-field cc-search-input w-input"
-                  autoFocus
+                  className="block h-10 w-full rounded-full border border-[var(--control-border-soft)] bg-[var(--control-bg)] py-0 pl-4 pr-10 text-sm font-medium text-[var(--black)] outline-none transition-[border-color,background-color,box-shadow] placeholder:text-[var(--control-muted)] hover:border-[var(--control-border)] focus:border-[var(--control-border)] focus:bg-[var(--white)] focus:ring-2 focus:ring-[var(--control-border-soft)]"
                   maxLength={256}
                   name="query"
-                  placeholder="Search…"
+                  placeholder="Search blogs"
                   type="search"
                   id="search"
                   required
                 />
-                <div
-                  data-w-id="e06e12e1-546d-ae9f-c220-4310850bf62a"
-                  className="menu-button cc-search"
+                <button
+                  type="submit"
+                  aria-label="Submit search"
+                  className="absolute right-1 top-1/2 flex size-8 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-[var(--black)] p-0 text-[var(--white)] transition-opacity hover:opacity-75"
                 >
-                  <div className="search-icon w-embed">
+                  <div className="size-3.5 origin-center">
                     <svg
                       width="100%"
                       height="100%"
@@ -109,195 +111,190 @@ export default function Navbar() {
                       />
                     </svg>
                   </div>
-                </div>
+                </button>
               </form>
-              <div className="menu-button cc-black w-nav-button">
-                <div>
-                  <div className="menu-icon cc-dot">
-                    <div className="menu-dot cc-first cc-black"></div>
-                    <div className="menu-dot cc-black"></div>
-                    <div className="menu-dot cc-last cc-black"></div>
+
+              <button
+                type="button"
+                aria-controls="site-navigation"
+                aria-expanded={isMenuOpen}
+                aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
+                onClick={() => setIsMenuOpen((open) => !open)}
+                className="relative z-[2] flex size-10 flex-none cursor-pointer items-center justify-center rounded-full border border-[var(--control-border)] bg-transparent p-0 transition-opacity hover:opacity-75"
+              >
+                <div className="relative size-full">
+                  <div
+                    className={`absolute inset-0 flex size-full items-center justify-center gap-0.5 transition-opacity ${isMenuOpen ? "opacity-0" : "opacity-100"}`}
+                  >
+                    <div className="size-1 rounded-full bg-[var(--black)]"></div>
+                    <div className="size-1 rounded-full bg-[var(--black)]"></div>
+                    <div className="size-1 rounded-full bg-[var(--black)]"></div>
                   </div>
-                  <div className="menu-icon cc-x">
-                    <div className="bar cc-left cc-black"></div>
-                    <div className="bar cc-right cc-black"></div>
+                  <div
+                    className={`absolute inset-0 flex size-full items-center justify-center transition-opacity ${isMenuOpen ? "opacity-100" : "opacity-0"}`}
+                  >
+                    <div className="absolute h-[0.6em] w-0.5 -rotate-45 bg-[var(--black)]"></div>
+                    <div className="absolute h-[0.6em] w-0.5 rotate-45 bg-[var(--black)]"></div>
                   </div>
                 </div>
-              </div>
+              </button>
             </div>
           </div>
-          <nav role="navigation" className="nav-menu w-nav-menu">
-            <div className="nav-menu-content">
-              <div className="container cc-nav-wrap">
+          <nav
+            id="site-navigation"
+            aria-hidden={!isMenuOpen}
+            onClick={(event) => {
+              if ((event.target as HTMLElement).closest("a"))
+                setIsMenuOpen(false);
+            }}
+            className={`fixed inset-0 z-40 flex h-dvh items-stretch overflow-y-auto bg-[var(--white)] transition-[opacity,visibility] duration-300 ${isMenuOpen ? "visible opacity-100" : "invisible pointer-events-none opacity-0"}`}
+          >
+            <div className="relative flex size-full flex-col justify-between pt-24">
+              <div className="relative mx-auto flex w-[96%] max-w-[68rem] flex-col justify-between">
                 <div>
-                  <div className="u-display-flex cc-nav-link-list-wrap">
-                    <ul role="list" className="nav-list cc-menu-first">
-                      <li className="nav-list-item cc-in-menu">
+                  <div className="flex items-start gap-12">
+                    <ul
+                      role="list"
+                      className="mr-[2vw] flex list-none flex-col items-start gap-3 p-0"
+                    >
+                      <li className="flex items-center gap-1 text-lg leading-none lg:text-[1.33vw]">
                         <Link
                           href="/"
                           aria-current="page"
-                          className="u-font-cutive w--current"
+                          className="font-mono"
                         >
                           Home
                         </Link>
-                        <div className="text-link-arrow">→</div>
+                        <div className="text-sm">→</div>
                       </li>
-                      <li className="nav-list-item cc-in-menu">
-                        <Link href="/about-us" className="u-font-cutive">
+                      <li className="flex items-center gap-1 text-lg leading-none lg:text-[1.33vw]">
+                        <Link href="/about-us" className="font-mono">
                           About Us
                         </Link>
-                        <div className="text-link-arrow">→</div>
+                        <div className="text-sm">→</div>
                       </li>
-                      <li className="nav-list-item cc-in-menu">
-                        <Link href="/contact-us" className="u-font-cutive">
+                      <li className="flex items-center gap-1 text-lg leading-none lg:text-[1.33vw]">
+                        <Link href="/contact" className="font-mono">
                           Contact
                         </Link>
-                        <div className="text-link-arrow">→</div>
+                        <div className="text-sm">→</div>
                       </li>
                     </ul>
-                    <div className="nav-list u-xsmall-hide">
-                      <div className="nav-list-item cc-in-menu">
-                        <Link href="/all-blogs" className="u-font-cutive">
+                    <div className="flex list-none flex-col items-start gap-3 p-0 max-sm:hidden">
+                      <div className="flex items-center gap-1 text-lg leading-none lg:text-[1.33vw]">
+                        <Link href="/all-blogs" className="font-mono">
                           All Blogs
                         </Link>
-                        <div className="text-link-arrow">→</div>
+                        <div className="text-sm">→</div>
                       </div>
-                      <div className="w-dyn-list">
-                        <div role="list" className="nav-list w-dyn-items">
+                      <div>
+                        <div
+                          role="list"
+                          className="flex list-none flex-col items-start gap-3 p-0"
+                        >
                           <div
                             role="listitem"
-                            className="nav-list-item w-dyn-item"
+                            className="flex items-center gap-1"
                           >
                             <Link
                               href="/tag/featured-blogs"
-                              className="nav-list-item cc-in-menu w-inline-block"
+                              className="flex max-w-full items-center gap-1 text-lg leading-none lg:text-[1.33vw]"
                             >
-                              <div className="u-font-cutive">
-                                Featured Blogs
-                              </div>
-                              <div className="text-link-arrow">→</div>
+                              <div className="font-mono">Featured Blogs</div>
+                              <div className="text-sm">→</div>
                             </Link>
                           </div>
                           <div
                             role="listitem"
-                            className="nav-list-item w-dyn-item"
+                            className="flex items-center gap-1"
                           >
                             <Link
                               href="/tag/most-popular"
-                              className="nav-list-item cc-in-menu w-inline-block"
+                              className="flex max-w-full items-center gap-1 text-lg leading-none lg:text-[1.33vw]"
                             >
-                              <div className="u-font-cutive">Most Popular</div>
-                              <div className="text-link-arrow">→</div>
+                              <div className="font-mono">Most Popular</div>
+                              <div className="text-sm">→</div>
                             </Link>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="nav-pill-wrap w-dyn-list">
-                    <div role="list" className="pill-grid cc-huge w-dyn-items">
-                      <div role="listitem" className="w-dyn-item">
-                        <Link
-                          //   style="background-color: #c0d2d8"
-                          href="/category/technology"
-                          className="pill cc-huge w-inline-block"
-                        >
-                          <div>Technology</div>
-                        </Link>
-                      </div>
-                      <div role="listitem" className="w-dyn-item">
-                        <Link
-                          //   style="background-color: #d0d8c0"
-                          href="/category/world"
-                          className="pill cc-huge w-inline-block"
-                        >
-                          <div>World</div>
-                        </Link>
-                      </div>
-                      <div role="listitem" className="w-dyn-item">
-                        <Link
-                          //   style="background-color: #dfcccc"
-                          href="/category/sports"
-                          className="pill cc-huge w-inline-block"
-                        >
-                          <div>Sports</div>
-                        </Link>
-                      </div>
-                      <div role="listitem" className="w-dyn-item">
-                        <Link
-                          //   style="background-color: #c3c0d8"
-                          href="/category/business"
-                          className="pill cc-huge w-inline-block"
-                        >
-                          <div>Business</div>
-                        </Link>
-                      </div>
-                      <div role="listitem" className="w-dyn-item">
-                        <Link
-                          //   style="background-color: #ece9d7"
-                          href="/category/politics"
-                          className="pill cc-huge w-inline-block"
-                        >
-                          <div>Politics</div>
-                        </Link>
-                      </div>
+                  <div className="mt-[2.5vw]">
+                    <div role="list" className="flex flex-wrap gap-x-2 gap-y-4">
+                      {categories.map((category) => (
+                        <div role="listitem" key={category.slug}>
+                          <CategoryPill category={category.slug} large linked />
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="container cc-nav-footer">
-                <div className="row row-justify-between row-align-center">
-                  <div className="column col-large-10 col-medium-12">
-                    <div className="u-display-flex cc-footer-template-link-wrap">
+              <div className="mx-auto block w-[96%] max-w-[68rem] py-4">
+                <div className="-mx-2 -mb-8 flex flex-wrap content-stretch items-center justify-between">
+                  <div className="mb-8 max-w-[83.3333%] flex-[1_1_83.33%] px-2">
+                    <div className="inline-flex w-full flex-wrap items-center">
                       <a
-                        href="https://webflow.com"
+                        href="https://okoyedavid.com"
                         target="_blank"
-                        className="webflow-link w-inline-block"
+                        rel="noreferrer"
+                        className="mr-4 inline-block max-w-full text-left text-sm font-semibold tracking-[-0.025em]"
                       >
-                        <div>Powered by Webflow</div>
+                        <div>David Okoye</div>
                       </a>
                       <a
-                        href="/template/style-guide"
-                        className="text-link w-inline-block"
+                        href="/about-us"
+                        className="flex max-w-full gap-4 text-base transition-opacity hover:opacity-65"
                       >
-                        <div className="paragraph-0-9rem u-font-cutive">
-                          Style Guide
+                        <div className="font-mono text-sm leading-[1.4] tracking-[-0.005em]">
+                          About
                         </div>
                       </a>
-                      <div className="h4 cc-tag-separator">/</div>
-                      <a href="/template/licenses" className="w-inline-block">
-                        <div className="paragraph-0-9rem u-font-cutive">
-                          Licenses
+                      <div className="mx-[0.2em] inline font-mono text-[1.1rem] leading-none tracking-[-0.05em]">
+                        /
+                      </div>
+                      <a href="/all-blogs" className="inline-block max-w-full">
+                        <div className="font-mono text-sm leading-[1.4] tracking-[-0.005em]">
+                          Articles
                         </div>
                       </a>
-                      <div className="h4 cc-tag-separator">/</div>
+                      <div className="mx-[0.2em] inline font-mono text-[1.1rem] leading-none tracking-[-0.05em]">
+                        /
+                      </div>
                       <a
-                        href="/template/changelog"
-                        className="text-link w-inline-block"
+                        href="https://github.com/okoyedavid"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex max-w-full gap-4 text-base transition-opacity hover:opacity-65"
                       >
-                        <div className="paragraph-0-9rem u-font-cutive">
-                          Changelog
+                        <div className="font-mono text-sm leading-[1.4] tracking-[-0.005em]">
+                          GitHub
                         </div>
                       </a>
-                      <div className="h4 cc-tag-separator">/</div>
+                      <div className="mx-[0.2em] inline font-mono text-[1.1rem] leading-none tracking-[-0.05em]">
+                        /
+                      </div>
                       <a
-                        href="/template/instructions"
-                        className="text-link w-inline-block"
+                        href="https://www.linkedin.com/in/okoyedavid7"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex max-w-full gap-4 text-base transition-opacity hover:opacity-65"
                       >
-                        <div className="paragraph-0-9rem u-font-cutive">
-                          Instructions
+                        <div className="font-mono text-sm leading-[1.4] tracking-[-0.005em]">
+                          LinkedIn
                         </div>
                       </a>
                     </div>
                   </div>
-                  <div className="column col-shrink">
-                    <div className="u-display-flex cc-footer-social-wrap">
+                  <div className="mb-8 flex-[0_auto] px-2">
+                    <div className="flex items-center justify-end">
                       <a
-                        href="https://instagram.com"
+                        href="https://okoyedavid.com"
                         target="_blank"
-                        className="w-inline-block"
+                        className="hidden"
                       >
-                        <div className="icon cc-social-media w-embed">
+                        <div className="inline-block size-full max-h-8 max-w-8 origin-center scale-[0.85]">
                           <svg
                             width="100%"
                             height="100%"
@@ -323,16 +320,15 @@ export default function Navbar() {
                             />
                           </svg>
                         </div>
-                        <div className="u-screen-reader-only">
-                          Instagram icon
-                        </div>
+                        <div className="sr-only">David Okoye portfolio</div>
                       </a>
                       <a
-                        href="https://linkedin.com"
+                        href="https://www.linkedin.com/in/okoyedavid7"
                         target="_blank"
-                        className="w-inline-block"
+                        rel="noreferrer"
+                        className="inline-block max-w-full"
                       >
-                        <div className="icon cc-social-media w-embed">
+                        <div className="inline-block size-full max-h-8 max-w-8 origin-center scale-[0.85]">
                           <svg
                             width="100%"
                             height="100%"
@@ -348,16 +344,14 @@ export default function Navbar() {
                             />
                           </svg>
                         </div>
-                        <div className="u-screen-reader-only">
-                          Linkedin icon
-                        </div>
+                        <div className="sr-only">Linkedin icon</div>
                       </a>
                       <a
-                        href="https://facebook.com"
+                        href="https://github.com/okoyedavid"
                         target="_blank"
-                        className="w-inline-block"
+                        className="hidden"
                       >
-                        <div className="icon cc-social-media w-embed">
+                        <div className="inline-block size-full max-h-8 max-w-8 origin-center scale-[0.85]">
                           <svg
                             width="100%"
                             height="100%"
@@ -373,9 +367,7 @@ export default function Navbar() {
                             />
                           </svg>
                         </div>
-                        <div className="u-screen-reader-only">
-                          Facebook icon
-                        </div>
+                        <div className="sr-only">David Okoye on GitHub</div>
                       </a>
                     </div>
                   </div>
@@ -385,7 +377,7 @@ export default function Navbar() {
           </nav>
         </div>
       </div>
-      <div className="nav-blur-backdrop"></div>
+      <div className="absolute inset-0 z-[1] size-full bg-transparent opacity-[0.98] backdrop-blur-[3px]"></div>
     </div>
   );
 }

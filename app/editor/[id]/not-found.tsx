@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function EditorNotFound() {
   return (
-    <div className="min-h-screen bg-[color:var(--background)] px-4 py-12 text-[color:var(--foreground)]">
-      <div className="mx-auto max-w-2xl rounded-[28px] border border-[color:var(--border)] bg-[color:var(--panel-strong)] p-6 shadow-[0_18px_60px_-40px_rgba(15,23,42,0.65)]">
+    <div className="editor-workspace min-h-screen bg-[color:var(--background)] px-4 py-12 text-[color:var(--foreground)]">
+      <div className="mx-auto max-w-2xl border-y border-[color:var(--border)] py-8">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted-foreground)]">
           Missing draft
         </p>
@@ -16,7 +16,7 @@ export default function EditorNotFound() {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href="/editor"
-            className="rounded-full bg-[color:var(--brand-500)] px-4 py-2 text-sm font-semibold text-white"
+            className="rounded-full bg-[color:var(--panel-inverse)] px-4 py-2 text-sm font-semibold text-[color:var(--panel-inverse-foreground)]"
           >
             New draft
           </Link>

@@ -1,6 +1,346 @@
 {
   "posts": [
     {
+      "id": "b8cd6f96-1841-4ac0-a9e9-f2ea3d6b9e66",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-26T01:13:17.472Z",
+      "updatedAt": "2026-08-26T01:13:17.472Z",
+      "publishedAt": null
+    },
+    {
+      "id": "a32bd65b-1858-4e28-8c01-5d55c16a264e",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-26T01:04:06.212Z",
+      "updatedAt": "2026-08-26T01:04:06.212Z",
+      "publishedAt": null
+    },
+    {
+      "id": "a4a517bc-a355-4816-a6bf-6dc44905aec1",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-26T00:59:04.068Z",
+      "updatedAt": "2026-08-26T00:59:04.068Z",
+      "publishedAt": null
+    },
+    {
+      "id": "ded7c7f4-9857-46e6-8a43-fad7f65aec63",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-26T00:41:50.269Z",
+      "updatedAt": "2026-08-26T00:41:50.269Z",
+      "publishedAt": null
+    },
+    {
+      "id": "cde891ed-2246-4dd5-9d1d-2c7c7ebc4d6c",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-26T00:32:40.811Z",
+      "updatedAt": "2026-08-26T00:32:40.811Z",
+      "publishedAt": null
+    },
+    {
+      "id": "0b91c94f-eae2-4180-a47f-8886e5ac90b3",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-26T00:22:37.525Z",
+      "updatedAt": "2026-08-26T00:22:37.525Z",
+      "publishedAt": null
+    },
+    {
+      "id": "570c6e11-1416-48ec-919c-985279f19895",
+      "title": "Aurescore",
+      "slug": "aurescore",
+      "excerpt": "aurescore is a student record gpa calculator",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "markdown"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Implement the Rose Cafe frontend authentication flow against the existing REST API and add a minimal protected dashboard.\n\nFirst inspect the frontend project and follow its existing framework, routing, component, styling, state-management, and environment-variable conventions. Preserve the current visual language and avoid adding a new UI framework unless one is already installed. Keep this implementation intentionally small.\n\n## API configuration\n\n- The local backend base URL is `http://localhost:5000`.\n- Put the base URL behind the frontend project's normal public environment variable, such as `VITE_API_URL` or `NEXT_PUBLIC_API_URL`, rather than scattering the URL through components.\n- Authentication endpoints are under `/api/auth`.\n- Requests and responses use JSON.\n\n## API contract\n\n### Register\n\n`POST /api/auth/register`\n\nRequest:\n\n```json\n{\n  \"name\": \"Ada Lovelace\",\n  \"email\": \"ada@example.com\",\n  \"password\": \"password with at least 8 bytes\"\n}\n```\n\nRegistration is public. A successful response has status `201` and uses the authentication response shape below.\n\n### Login\n\n`POST /api/auth/login`\n\nRequest:\n\n```json\n{\n  \"email\": \"ada@example.com\",\n  \"password\": \"the user's password\"\n}\n```\n\nA successful response has status `200` and uses this shape:\n\n```json\n{\n  \"user\": {\n    \"_id\": \"MongoDB user id\",\n    \"name\": \"Ada Lovelace\",\n    \"email\": \"ada@example.com\",\n    \"role\": \"customer\",\n    \"createdAt\": \"ISO date\",\n    \"updatedAt\": \"ISO date\"\n  },\n  \"accessToken\": \"JWT valid for one hour\",\n  \"refreshToken\": \"JWT valid for seven days\",\n  \"accessTokenExpiresIn\": 3600,\n  \"refreshTokenExpiresIn\": 604800\n}\n```\n\n### Current user\n\n`GET /api/auth/me`\n\nSend the access token as:\n\n```text\nAuthorization: Bearer <accessToken>\n```\n\nA successful response is:\n\n```json\n{\n  \"user\": {\n    \"_id\": \"MongoDB user id\",\n    \"name\": \"Ada Lovelace\",\n    \"email\": \"ada@example.com\",\n    \"role\": \"customer\",\n    \"createdAt\": \"ISO date\",\n    \"updatedAt\": \"ISO date\"\n  }\n}\n```\n\nMissing, invalid, or expired access tokens return `401`.\n\n### Refresh\n\n`POST /api/auth/refresh`\n\nRequest:\n\n```json\n{\n  \"refreshToken\": \"the currently stored refresh token\"\n}\n```\n\nThe successful response uses the same authentication response shape as login. The backend rotates refresh tokens, so immediately replace both stored tokens with the returned values. A refresh token can only be used once.\n\n### Logout\n\n`POST /api/auth/logout`\n\nRequest:\n\n```json\n{\n  \"refreshToken\": \"the currently stored refresh token\"\n}\n```\n\nSuccessful logout returns status `204`. Clear local authentication state even if the logout request fails, then send the user to login.\n\n## Frontend behavior\n\n1. Create register and login screens with controlled inputs, client-side required-field validation, disabled submission while loading, and readable API errors.\n2. On successful registration or login, save the returned values in `localStorage` using these keys:\n   - `roseCafeAccessToken`\n   - `roseCafeRefreshToken`\n   - `roseCafeUser`\n3. Redirect authenticated users to `/dashboard`.\n4. Add a protected `/dashboard` route.\n5. When the dashboard loads, call `/api/auth/me` with the access token instead of trusting only the cached user object.\n6. Render a simple dashboard containing:\n\n   ```text\n   Welcome, {user.name}\n   ```\n\n   Also show the user's email and a Logout button. Do not add charts, navigation systems, admin features, or unrelated dashboard content yet.\n7. If a protected request returns `401`, attempt one refresh using the stored refresh token, save the complete new token pair, and retry the original request once.\n8. Do not retry refresh recursively. If refresh fails, clear all three localStorage keys and redirect to login.\n9. Avoid multiple simultaneous refresh requests. If the API client supports interceptors, share one in-flight refresh promise among failed requests.\n10. Never send the refresh token in the `Authorization` header. It belongs only in the JSON bodies of refresh and logout requests.\n11. Add a route guard that redirects unauthenticated dashboard visits to login. A stored access token is enough for the initial guard; `/me` remains the authoritative validation.\n12. Keep authentication logic in a small reusable service/context/store instead of duplicating fetch logic across pages.\n\nThe project is intentionally using `localStorage` for both tokens for now. Do not replace it with cookies in this task. Avoid logging tokens or including them in errors, URLs, analytics, or rendered markup.\n\n## Error handling\n\nThe API returns errors in this shape:\n\n```json\n{\n  \"error\": \"Human-readable message\"\n}\n```\n\nDisplay the message when it is safe and available, with a generic fallback for network or unexpected errors. Handle at least `400`, `401`, and `409` responses.\n\n## Acceptance criteria\n\n- A visitor can register and is redirected to the dashboard.\n- A registered user can log in and is redirected to the dashboard.\n- `/dashboard` redirects unauthenticated visitors to login.\n- The dashboard verifies the session through `/api/auth/me` and displays `Welcome, {name}`.\n- Expired access tokens are refreshed once and the original request is retried.\n- Rotated access and refresh tokens replace the old localStorage values.\n- Failed refresh clears authentication state and redirects to login.\n- Logout revokes the refresh token, clears localStorage, and redirects to login.\n- Existing frontend features continue to work.\n- Run the project's existing lint, type-check, test, and build commands before finishing.\n\n---\n"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            }
+          }
+        ]
+      },
+      "contentHtml": "<pre class=\"editor-code-block\"><code>Implement the Rose Cafe frontend authentication flow against the existing REST API and add a minimal protected dashboard.\n\nFirst inspect the frontend project and follow its existing framework, routing, component, styling, state-management, and environment-variable conventions. Preserve the current visual language and avoid adding a new UI framework unless one is already installed. Keep this implementation intentionally small.\n\n## API configuration\n\n- The local backend base URL is `http://localhost:5000`.\n- Put the base URL behind the frontend project's normal public environment variable, such as `VITE_API_URL` or `NEXT_PUBLIC_API_URL`, rather than scattering the URL through components.\n- Authentication endpoints are under `/api/auth`.\n- Requests and responses use JSON.\n\n## API contract\n\n### Register\n\n`POST /api/auth/register`\n\nRequest:\n\n```json\n{\n  \"name\": \"Ada Lovelace\",\n  \"email\": \"ada@example.com\",\n  \"password\": \"password with at least 8 bytes\"\n}\n```\n\nRegistration is public. A successful response has status `201` and uses the authentication response shape below.\n\n### Login\n\n`POST /api/auth/login`\n\nRequest:\n\n```json\n{\n  \"email\": \"ada@example.com\",\n  \"password\": \"the user's password\"\n}\n```\n\nA successful response has status `200` and uses this shape:\n\n```json\n{\n  \"user\": {\n    \"_id\": \"MongoDB user id\",\n    \"name\": \"Ada Lovelace\",\n    \"email\": \"ada@example.com\",\n    \"role\": \"customer\",\n    \"createdAt\": \"ISO date\",\n    \"updatedAt\": \"ISO date\"\n  },\n  \"accessToken\": \"JWT valid for one hour\",\n  \"refreshToken\": \"JWT valid for seven days\",\n  \"accessTokenExpiresIn\": 3600,\n  \"refreshTokenExpiresIn\": 604800\n}\n```\n\n### Current user\n\n`GET /api/auth/me`\n\nSend the access token as:\n\n```text\nAuthorization: Bearer &lt;accessToken&gt;\n```\n\nA successful response is:\n\n```json\n{\n  \"user\": {\n    \"_id\": \"MongoDB user id\",\n    \"name\": \"Ada Lovelace\",\n    \"email\": \"ada@example.com\",\n    \"role\": \"customer\",\n    \"createdAt\": \"ISO date\",\n    \"updatedAt\": \"ISO date\"\n  }\n}\n```\n\nMissing, invalid, or expired access tokens return `401`.\n\n### Refresh\n\n`POST /api/auth/refresh`\n\nRequest:\n\n```json\n{\n  \"refreshToken\": \"the currently stored refresh token\"\n}\n```\n\nThe successful response uses the same authentication response shape as login. The backend rotates refresh tokens, so immediately replace both stored tokens with the returned values. A refresh token can only be used once.\n\n### Logout\n\n`POST /api/auth/logout`\n\nRequest:\n\n```json\n{\n  \"refreshToken\": \"the currently stored refresh token\"\n}\n```\n\nSuccessful logout returns status `204`. Clear local authentication state even if the logout request fails, then send the user to login.\n\n## Frontend behavior\n\n1. Create register and login screens with controlled inputs, client-side required-field validation, disabled submission while loading, and readable API errors.\n2. On successful registration or login, save the returned values in `localStorage` using these keys:\n   - `roseCafeAccessToken`\n   - `roseCafeRefreshToken`\n   - `roseCafeUser`\n3. Redirect authenticated users to `/dashboard`.\n4. Add a protected `/dashboard` route.\n5. When the dashboard loads, call `/api/auth/me` with the access token instead of trusting only the cached user object.\n6. Render a simple dashboard containing:\n\n   ```text\n   Welcome, {user.name}\n   ```\n\n   Also show the user's email and a Logout button. Do not add charts, navigation systems, admin features, or unrelated dashboard content yet.\n7. If a protected request returns `401`, attempt one refresh using the stored refresh token, save the complete new token pair, and retry the original request once.\n8. Do not retry refresh recursively. If refresh fails, clear all three localStorage keys and redirect to login.\n9. Avoid multiple simultaneous refresh requests. If the API client supports interceptors, share one in-flight refresh promise among failed requests.\n10. Never send the refresh token in the `Authorization` header. It belongs only in the JSON bodies of refresh and logout requests.\n11. Add a route guard that redirects unauthenticated dashboard visits to login. A stored access token is enough for the initial guard; `/me` remains the authoritative validation.\n12. Keep authentication logic in a small reusable service/context/store instead of duplicating fetch logic across pages.\n\nThe project is intentionally using `localStorage` for both tokens for now. Do not replace it with cookies in this task. Avoid logging tokens or including them in errors, URLs, analytics, or rendered markup.\n\n## Error handling\n\nThe API returns errors in this shape:\n\n```json\n{\n  \"error\": \"Human-readable message\"\n}\n```\n\nDisplay the message when it is safe and available, with a generic fallback for network or unexpected errors. Handle at least `400`, `401`, and `409` responses.\n\n## Acceptance criteria\n\n- A visitor can register and is redirected to the dashboard.\n- A registered user can log in and is redirected to the dashboard.\n- `/dashboard` redirects unauthenticated visitors to login.\n- The dashboard verifies the session through `/api/auth/me` and displays `Welcome, {name}`.\n- Expired access tokens are refreshed once and the original request is retried.\n- Rotated access and refresh tokens replace the old localStorage values.\n- Failed refresh clears authentication state and redirects to login.\n- Logout revokes the refresh token, clears localStorage, and redirects to login.\n- Existing frontend features continue to work.\n- Run the project's existing lint, type-check, test, and build commands before finishing.\n\n---\n</code></pre><p></p>",
+      "plainText": "Implement the Rose Cafe frontend authentication flow against the existing REST API and add a minimal protected dashboard.\n\nFirst inspect the frontend project and follow its existing framework, routing, component, styling, state-management, and environment-variable conventions. Preserve the current visual language and avoid adding a new UI framework unless one is already installed. Keep this implementation intentionally small.\n\n## API configuration\n\n- The local backend base URL is `http://localhost:5000`.\n- Put the base URL behind the frontend project's normal public environment variable, such as `VITE_API_URL` or `NEXT_PUBLIC_API_URL`, rather than scattering the URL through components.\n- Authentication endpoints are under `/api/auth`.\n- Requests and responses use JSON.\n\n## API contract\n\n### Register\n\n`POST /api/auth/register`\n\nRequest:\n\n```json\n{\n  \"name\": \"Ada Lovelace\",\n  \"email\": \"ada@example.com\",\n  \"password\": \"password with at least 8 bytes\"\n}\n```\n\nRegistration is public. A successful response has status `201` and uses the authentication response shape below.\n\n### Login\n\n`POST /api/auth/login`\n\nRequest:\n\n```json\n{\n  \"email\": \"ada@example.com\",\n  \"password\": \"the user's password\"\n}\n```\n\nA successful response has status `200` and uses this shape:\n\n```json\n{\n  \"user\": {\n    \"_id\": \"MongoDB user id\",\n    \"name\": \"Ada Lovelace\",\n    \"email\": \"ada@example.com\",\n    \"role\": \"customer\",\n    \"createdAt\": \"ISO date\",\n    \"updatedAt\": \"ISO date\"\n  },\n  \"accessToken\": \"JWT valid for one hour\",\n  \"refreshToken\": \"JWT valid for seven days\",\n  \"accessTokenExpiresIn\": 3600,\n  \"refreshTokenExpiresIn\": 604800\n}\n```\n\n### Current user\n\n`GET /api/auth/me`\n\nSend the access token as:\n\n```text\nAuthorization: Bearer <accessToken>\n```\n\nA successful response is:\n\n```json\n{\n  \"user\": {\n    \"_id\": \"MongoDB user id\",\n    \"name\": \"Ada Lovelace\",\n    \"email\": \"ada@example.com\",\n    \"role\": \"customer\",\n    \"createdAt\": \"ISO date\",\n    \"updatedAt\": \"ISO date\"\n  }\n}\n```\n\nMissing, invalid, or expired access tokens return `401`.\n\n### Refresh\n\n`POST /api/auth/refresh`\n\nRequest:\n\n```json\n{\n  \"refreshToken\": \"the currently stored refresh token\"\n}\n```\n\nThe successful response uses the same authentication response shape as login. The backend rotates refresh tokens, so immediately replace both stored tokens with the returned values. A refresh token can only be used once.\n\n### Logout\n\n`POST /api/auth/logout`\n\nRequest:\n\n```json\n{\n  \"refreshToken\": \"the currently stored refresh token\"\n}\n```\n\nSuccessful logout returns status `204`. Clear local authentication state even if the logout request fails, then send the user to login.\n\n## Frontend behavior\n\n1. Create register and login screens with controlled inputs, client-side required-field validation, disabled submission while loading, and readable API errors.\n2. On successful registration or login, save the returned values in `localStorage` using these keys:\n   - `roseCafeAccessToken`\n   - `roseCafeRefreshToken`\n   - `roseCafeUser`\n3. Redirect authenticated users to `/dashboard`.\n4. Add a protected `/dashboard` route.\n5. When the dashboard loads, call `/api/auth/me` with the access token instead of trusting only the cached user object.\n6. Render a simple dashboard containing:\n\n   ```text\n   Welcome, {user.name}\n   ```\n\n   Also show the user's email and a Logout button. Do not add charts, navigation systems, admin features, or unrelated dashboard content yet.\n7. If a protected request returns `401`, attempt one refresh using the stored refresh token, save the complete new token pair, and retry the original request once.\n8. Do not retry refresh recursively. If refresh fails, clear all three localStorage keys and redirect to login.\n9. Avoid multiple simultaneous refresh requests. If the API client supports interceptors, share one in-flight refresh promise among failed requests.\n10. Never send the refresh token in the `Authorization` header. It belongs only in the JSON bodies of refresh and logout requests.\n11. Add a route guard that redirects unauthenticated dashboard visits to login. A stored access token is enough for the initial guard; `/me` remains the authoritative validation.\n12. Keep authentication logic in a small reusable service/context/store instead of duplicating fetch logic across pages.\n\nThe project is intentionally using `localStorage` for both tokens for now. Do not replace it with cookies in this task. Avoid logging tokens or including them in errors, URLs, analytics, or rendered markup.\n\n## Error handling\n\nThe API returns errors in this shape:\n\n```json\n{\n  \"error\": \"Human-readable message\"\n}\n```\n\nDisplay the message when it is safe and available, with a generic fallback for network or unexpected errors. Handle at least `400`, `401`, and `409` responses.\n\n## Acceptance criteria\n\n- A visitor can register and is redirected to the dashboard.\n- A registered user can log in and is redirected to the dashboard.\n- `/dashboard` redirects unauthenticated visitors to login.\n- The dashboard verifies the session through `/api/auth/me` and displays `Welcome, {name}`.\n- Expired access tokens are refreshed once and the original request is retried.\n- Rotated access and refresh tokens replace the old localStorage values.\n- Failed refresh clears authentication state and redirects to login.\n- Logout revokes the refresh token, clears localStorage, and redirects to login.\n- Existing frontend features continue to work.\n- Run the project's existing lint, type-check, test, and build commands before finishing.\n\n---",
+      "status": "draft",
+      "createdAt": "2026-08-26T00:07:45.523Z",
+      "updatedAt": "2026-08-26T00:27:29.884Z",
+      "publishedAt": null,
+      "assets": [
+        {
+          "id": "32115119-12a8-46ad-83d5-fe009caee770",
+          "kind": "cover",
+          "url": null,
+          "filename": "aurescore.png",
+          "mimeType": "image/png",
+          "status": "local"
+        }
+      ]
+    },
+    {
+      "id": "c1ae2f66-7350-4241-901e-99a3fa326658",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-24T04:11:24.800Z",
+      "updatedAt": "2026-08-24T04:11:24.800Z",
+      "publishedAt": null
+    },
+    {
+      "id": "3d31f60e-a203-4659-bb3c-b00a651d8155",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-24T03:58:59.921Z",
+      "updatedAt": "2026-08-24T03:58:59.921Z",
+      "publishedAt": null
+    },
+    {
+      "id": "b00b9ee2-aa26-4005-8cfd-350a11c519c5",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-24T03:49:07.922Z",
+      "updatedAt": "2026-08-24T03:49:07.922Z",
+      "publishedAt": null
+    },
+    {
+      "id": "ca1debc3-e2da-4540-95de-c49526abba82",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-24T03:46:19.369Z",
+      "updatedAt": "2026-08-24T03:46:19.369Z",
+      "publishedAt": null
+    },
+    {
+      "id": "3e6fc3d1-dcdf-47cc-9bfb-aad5353ec6ce",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-24T03:28:32.474Z",
+      "updatedAt": "2026-08-24T03:28:32.474Z",
+      "publishedAt": null
+    },
+    {
+      "id": "2625d099-7393-480f-b07c-eaff0bfd4de5",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-24T02:54:47.907Z",
+      "updatedAt": "2026-08-24T02:54:47.907Z",
+      "publishedAt": null
+    },
+    {
+      "id": "c0eb4c3c-b3a5-4c06-a79e-b32505526b37",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-24T02:11:28.499Z",
+      "updatedAt": "2026-08-24T02:11:28.499Z",
+      "publishedAt": null
+    },
+    {
+      "id": "318d27e3-b0dd-49cb-8ca5-eb937dd8d977",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-24T01:39:11.301Z",
+      "updatedAt": "2026-08-24T01:39:11.301Z",
+      "publishedAt": null
+    },
+    {
       "id": "787657a7-2958-4e97-987d-210fd68484b5",
       "title": "",
       "slug": "",
