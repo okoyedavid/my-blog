@@ -685,8 +685,8 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
 
   if (!isReady || !isAuthenticated) {
     return (
-      <div className="editor-workspace min-h-screen bg-[color:var(--background)] px-4 py-12">
-        <div className="mx-auto max-w-3xl border-y border-[color:var(--border)] py-8 text-center text-[color:var(--foreground)]">
+      <div className="editor-workspace min-h-screen bg-background px-4 py-12">
+        <div className="mx-auto max-w-3xl border-y border-border py-8 text-center text-foreground">
           Redirecting to sign in…
         </div>
       </div>
@@ -694,25 +694,25 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
   }
 
   return (
-    <div className={`editor-workspace min-h-screen bg-[color:var(--background)] px-4 text-[color:var(--foreground)] sm:px-6 ${isDashboardEditor ? "py-5" : "py-6 sm:py-8"}`}>
+    <div className={`editor-workspace min-h-screen bg-background px-4 text-foreground sm:px-6 ${isDashboardEditor ? "py-5" : "py-6 sm:py-8"}`}>
       <div className="mx-auto flex max-w-[80rem] flex-col gap-6">
         <div className={`grid items-start gap-6 ${isDetailsOpen ? "xl:grid-cols-[minmax(0,1fr)_20rem]" : ""}`}>
           <main className={`min-w-0 space-y-5 ${isDetailsOpen ? "" : "mx-auto w-full max-w-[67.5rem]"}`}>
-            {isDashboardEditor ? null : <header className="border-b border-[color:var(--border)] pb-6">
+            {isDashboardEditor ? null : <header className="border-b border-border pb-6">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--muted-foreground)]">
+                  <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
                     Writing desk
                   </p>
                   <div className="mt-2 flex flex-wrap items-center gap-3">
                     <h1 className="m-0 font-serif text-3xl tracking-[-0.025em] sm:text-4xl">
                       Blog editor
                     </h1>
-                    <span className="rounded-full border border-[color:var(--border)] bg-[color:var(--panel-soft)] px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-[color:var(--muted-foreground)]">
+                    <span className="rounded-full border border-border bg-panel-soft px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
                       {status}
                     </span>
                   </div>
-                  <p className="mt-2 text-sm text-[color:var(--muted-foreground)]">
+                  <p className="mt-2 text-sm text-muted-foreground">
                     Shape the draft, check the reading experience, then publish.
                   </p>
                 </div>
@@ -722,7 +722,7 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
                     aria-controls="post-details-sidebar"
                     aria-expanded="false"
                     onClick={() => setDetailsPreference(true)}
-                    className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[color:var(--control-border)] bg-[color:var(--panel-strong)] px-4 py-2.5 font-mono text-xs font-medium transition hover:bg-[color:var(--panel-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--control-border-soft)]"
+                    className="inline-flex shrink-0 items-center gap-2 rounded-full border border-control-border bg-panel-strong px-4 py-2.5 font-mono text-xs font-medium transition hover:bg-panel-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-control-border-soft"
                   >
                     Post details
                   </button>
@@ -775,14 +775,14 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
               />
               <aside
                 id="post-details-sidebar"
-                className="fixed inset-y-0 right-0 z-[1050] h-dvh w-[min(92vw,24rem)] overflow-y-auto border-l border-[color:var(--border)] bg-[color:var(--panel-strong)] p-5 shadow-2xl xl:sticky xl:top-[4.5rem] xl:z-auto xl:h-auto xl:max-h-[calc(100dvh-5.5rem)] xl:w-auto xl:rounded-[var(--radius-medium)] xl:border xl:shadow-none"
+                className="fixed inset-y-0 right-0 z-[1050] h-dvh w-[min(92vw,24rem)] overflow-y-auto border-l border-border bg-panel-strong p-5 shadow-2xl xl:sticky xl:top-[4.5rem] xl:z-auto xl:h-auto xl:max-h-[calc(100dvh-5.5rem)] xl:w-auto xl:rounded-[var(--radius-medium)] xl:border xl:shadow-none"
               >
-                <div className="mb-5 flex items-start justify-between gap-4 border-b border-[color:var(--border)] pb-4">
+                <div className="mb-5 flex items-start justify-between gap-4 border-b border-border pb-4">
                   <div>
-                    <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-[color:var(--muted-foreground)]">
+                    <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
                       Post details
                     </p>
-                    <p className="mt-1 text-sm text-[color:var(--muted-foreground)]">
+                    <p className="mt-1 text-sm text-muted-foreground">
                       Prepare and publish this article.
                     </p>
                   </div>
@@ -790,17 +790,17 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
                     type="button"
                     onClick={() => setDetailsPreference(false)}
                     aria-label="Close post details"
-                    className="grid size-10 place-items-center rounded-full border border-[color:var(--border)] bg-[color:var(--panel-strong)] transition hover:bg-[color:var(--panel-soft)]"
+                    className="grid size-10 place-items-center rounded-full border border-border bg-panel-strong transition hover:bg-panel-soft"
                   >
                     <X aria-hidden="true" className="size-4" />
                   </button>
                 </div>
-                <div className="mb-6 grid gap-2 border-b border-[color:var(--border)] pb-6">
+                <div className="mb-6 grid gap-2 border-b border-border pb-6">
                   <button
                     ref={previewButtonRef}
                     type="button"
                     onClick={() => setIsPreview(true)}
-                    className="w-full rounded-full border border-[color:var(--border)] bg-[color:var(--panel-strong)] px-4 py-2.5 text-sm font-semibold text-[color:var(--foreground)] transition hover:border-[color:var(--muted-foreground)] hover:bg-[color:var(--panel-soft)]"
+                    className="w-full rounded-full border border-border bg-panel-strong px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-muted-foreground hover:bg-panel-soft"
                   >
                     Preview post
                   </button>
@@ -809,7 +809,7 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
                       type="button"
                       onClick={() => void handlePublish("draft")}
                       disabled={isPublishing}
-                      className="w-full rounded-full border border-[color:var(--border)] bg-[color:var(--panel-strong)] px-4 py-2.5 text-sm font-semibold text-[color:var(--foreground)] transition hover:border-[color:var(--muted-foreground)] hover:bg-[color:var(--panel-soft)] disabled:cursor-not-allowed disabled:opacity-50"
+                      className="w-full rounded-full border border-border bg-panel-strong px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-muted-foreground hover:bg-panel-soft disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       {isPublishing ? "Updating…" : "Revert to draft"}
                     </button>
@@ -818,7 +818,7 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
                       type="button"
                       onClick={() => void handlePublish("published")}
                       disabled={isPublishing}
-                      className="w-full rounded-full bg-[color:var(--panel-inverse)] px-4 py-2.5 text-sm font-semibold text-[color:var(--panel-inverse-foreground)] transition-opacity hover:opacity-75 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="w-full rounded-full bg-panel-inverse px-4 py-2.5 text-sm font-semibold text-panel-inverse-foreground transition-opacity hover:opacity-75 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       {isPublishing ? "Publishing…" : "Publish post"}
                     </button>
@@ -827,13 +827,13 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
                     <Link
                       href={`/blog/${slug}`}
                       target="_blank"
-                      className="w-full rounded-full px-4 py-2 text-center text-sm font-medium text-[color:var(--muted-foreground)] transition hover:bg-[color:var(--panel-soft)] hover:opacity-100"
+                      className="w-full rounded-full px-4 py-2 text-center text-sm font-medium text-muted-foreground transition hover:bg-panel-soft hover:opacity-100"
                     >
                       View live post ↗
                     </Link>
                   ) : null}
                   {publishError ? (
-                    <p className="mt-1 text-sm text-[color:var(--danger-foreground)]">
+                    <p className="mt-1 text-sm text-danger-foreground">
                       {publishError}
                     </p>
                   ) : null}
@@ -872,11 +872,11 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
               role="dialog"
               aria-modal="true"
               aria-labelledby="editor-preview-title"
-              className="flex h-[calc(100dvh-1rem)] w-full max-w-[76rem] flex-col overflow-hidden rounded-[var(--radius-medium)] border border-[color:var(--border)] bg-[color:var(--panel-strong)] shadow-2xl sm:h-[calc(100dvh-2.5rem)]"
+              className="flex h-[calc(100dvh-1rem)] w-full max-w-[76rem] flex-col overflow-hidden rounded-[var(--radius-medium)] border border-border bg-panel-strong shadow-2xl sm:h-[calc(100dvh-2.5rem)]"
             >
-              <header className="flex shrink-0 items-center justify-between border-b border-[color:var(--border)] bg-[color:var(--panel-strong)]/95 px-5 py-3 backdrop-blur-xl">
+              <header className="flex shrink-0 items-center justify-between border-b border-border bg-panel-strong/95 px-5 py-3 backdrop-blur-xl">
                 <div>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[color:var(--muted-foreground)]">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                     Reading view
                   </p>
                   <h2 id="editor-preview-title" className="m-0 text-lg font-semibold">
@@ -885,7 +885,7 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
                 </div>
                 <div className="flex items-center gap-3">
                   {isPreviewLoading ? (
-                    <span className="font-mono text-xs text-[color:var(--muted-foreground)]">
+                    <span className="font-mono text-xs text-muted-foreground">
                       Refreshing…
                     </span>
                   ) : null}
@@ -894,7 +894,7 @@ export function EditorShell({ initialPost }: { initialPost: Post }) {
                     type="button"
                     onClick={() => setIsPreview(false)}
                     aria-label="Close preview"
-                    className="grid size-10 place-items-center rounded-full border border-[color:var(--border)] bg-[color:var(--panel-strong)] transition hover:bg-[color:var(--panel-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--control-border-soft)]"
+                    className="grid size-10 place-items-center rounded-full border border-border bg-panel-strong transition hover:bg-panel-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-control-border-soft"
                   >
                     <X aria-hidden="true" className="size-4" />
                   </button>

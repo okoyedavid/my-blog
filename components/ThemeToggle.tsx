@@ -45,7 +45,7 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
       onClick={toggleTheme}
       aria-pressed={isDark}
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
-      className={`inline-flex items-center justify-center gap-2 rounded-full border border-[var(--control-border)] bg-[var(--control-bg)] font-mono text-xs leading-none transition-colors hover:bg-[var(--control-focus)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--control-border-soft)] ${compact ? "size-10 p-0" : "min-h-9 px-3 py-2"}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-full border border-control-border bg-control-bg font-mono text-xs leading-none transition-colors hover:bg-control-focus focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-control-border-soft ${compact ? "size-10 p-0" : "min-h-9 px-3 py-2"}`}
     >
       {isDark ? <Sun aria-hidden="true" className="size-4" /> : <Moon aria-hidden="true" className="size-4" />}
       {compact ? null : <span>{isDark ? "Light mode" : "Dark mode"}</span>}

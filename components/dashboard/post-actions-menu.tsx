@@ -33,7 +33,7 @@ export function PostActionsMenu({ slug }: { slug: string }) {
         aria-label="Open post actions"
         aria-expanded={isOpen}
         onClick={() => setIsOpen((open) => !open)}
-        className="grid size-9 place-items-center rounded-full border border-transparent transition hover:border-[color:var(--border)] hover:bg-[color:var(--panel-soft)]"
+        className="grid size-9 place-items-center rounded-full border border-transparent transition hover:border-border hover:bg-panel-soft"
       >
         <Ellipsis aria-hidden="true" className="size-4" />
       </button>
@@ -41,25 +41,25 @@ export function PostActionsMenu({ slug }: { slug: string }) {
       {isOpen ? (
         <div
           role="menu"
-          className="absolute right-0 top-11 z-50 w-44 rounded-xl border border-[color:var(--border)] bg-[color:var(--panel-strong)] p-1.5 shadow-[0_18px_50px_-20px_rgba(0,0,0,0.5)]"
+          className="absolute right-0 top-11 z-50 w-44 rounded-xl border border-border bg-panel-strong p-1.5 shadow-[0_18px_50px_-20px_rgba(0,0,0,0.5)]"
         >
           <Link
             href={`/blog/${slug}`}
             target="_blank"
             role="menuitem"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-[color:var(--panel-soft)] hover:opacity-100"
+            className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-panel-soft hover:opacity-100"
           >
-            <ExternalLink aria-hidden="true" className="size-4 text-[color:var(--muted-foreground)]" />
+            <ExternalLink aria-hidden="true" className="size-4 text-muted-foreground" />
             View post
           </Link>
           <Link
             href={`/dashboard/analytics/${slug}`}
             role="menuitem"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-[color:var(--panel-soft)] hover:opacity-100"
+            className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-panel-soft hover:opacity-100"
           >
-            <BarChart3 aria-hidden="true" className="size-4 text-[color:var(--muted-foreground)]" />
+            <BarChart3 aria-hidden="true" className="size-4 text-muted-foreground" />
             Analyze
           </Link>
         </div>

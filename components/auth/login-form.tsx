@@ -39,27 +39,27 @@ export function LoginForm({ returnTo = "/dashboard" }: { returnTo?: string }) {
   };
 
   return (
-    <div className="rounded-[var(--radius-medium)] border border-[color:var(--border)] bg-[color:var(--panel-strong)] p-5 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.45)] sm:p-8">
-      <div className="mb-8 border-b border-[color:var(--border)] pb-6">
-        <p className="mb-2 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--muted-foreground)]">
+    <div className="rounded-[var(--radius-medium)] border border-border bg-panel-strong p-5 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.45)] sm:p-8">
+      <div className="mb-8 border-b border-border pb-6">
+        <p className="mb-2 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           Writer access
         </p>
         <h1 className="m-0 font-serif text-[clamp(2.25rem,6vw,3.5rem)] leading-[0.98] tracking-[-0.04em]">
           Welcome back.
         </h1>
-        <p className="mb-0 mt-4 max-w-md text-sm leading-6 text-[color:var(--muted-foreground)] sm:text-base">
+        <p className="mb-0 mt-4 max-w-md text-sm leading-6 text-muted-foreground sm:text-base">
           Sign in to return to your drafts and continue shaping your next story.
         </p>
       </div>
 
       {isReady && isAuthenticated ? (
-        <div className="rounded-[var(--radius-small)] border border-[color:var(--border)] bg-[color:var(--panel-soft)] p-4">
-          <p className="mb-3 text-sm text-[color:var(--muted-foreground)]">
+        <div className="rounded-[var(--radius-small)] border border-border bg-panel-soft p-4">
+          <p className="mb-3 text-sm text-muted-foreground">
             You’re already signed in and ready to write.
           </p>
           <Link
             href={returnTo}
-            className="inline-flex min-h-11 w-full items-center justify-between rounded-full bg-[color:var(--panel-inverse)] px-5 text-sm font-semibold text-[color:var(--panel-inverse-foreground)] hover:opacity-80"
+            className="inline-flex min-h-11 w-full items-center justify-between rounded-full bg-panel-inverse px-5 text-sm font-semibold text-panel-inverse-foreground hover:opacity-80"
           >
             Continue to the editor
             <ArrowRight aria-hidden="true" className="size-4" />
@@ -69,7 +69,7 @@ export function LoginForm({ returnTo = "/dashboard" }: { returnTo?: string }) {
         <form onSubmit={handleSubmit} noValidate>
           <div className="grid gap-5">
             <label className="m-0 grid gap-2" htmlFor="login-email">
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-[color:var(--muted-foreground)]">
+              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                 Email address
               </span>
               <input
@@ -83,12 +83,12 @@ export function LoginForm({ returnTo = "/dashboard" }: { returnTo?: string }) {
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="you@example.com"
-                className="h-12 w-full rounded-[var(--radius-small)] border border-[color:var(--border)] bg-[color:var(--panel)] px-4 text-base text-[color:var(--foreground)] outline-none transition placeholder:text-[color:var(--muted-foreground)] focus:border-[color:var(--control-border)] focus:ring-2 focus:ring-[color:var(--control-border-soft)]"
+                className="h-12 w-full rounded-[var(--radius-small)] border border-border bg-panel px-4 text-base text-foreground outline-none transition placeholder:text-muted-foreground focus:border-control-border focus:ring-2 focus:ring-control-border-soft"
               />
             </label>
 
             <label className="m-0 grid gap-2" htmlFor="login-password">
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-[color:var(--muted-foreground)]">
+              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                 Password
               </span>
               <span className="relative block">
@@ -101,14 +101,14 @@ export function LoginForm({ returnTo = "/dashboard" }: { returnTo?: string }) {
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                   placeholder="Enter your password"
-                  className="h-12 w-full rounded-[var(--radius-small)] border border-[color:var(--border)] bg-[color:var(--panel)] px-4 pr-12 text-base text-[color:var(--foreground)] outline-none transition placeholder:text-[color:var(--muted-foreground)] focus:border-[color:var(--control-border)] focus:ring-2 focus:ring-[color:var(--control-border-soft)]"
+                  className="h-12 w-full rounded-[var(--radius-small)] border border-border bg-panel px-4 pr-12 text-base text-foreground outline-none transition placeholder:text-muted-foreground focus:border-control-border focus:ring-2 focus:ring-control-border-soft"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((visible) => !visible)}
                   aria-label={showPassword ? "Hide password" : "Show password"}
                   aria-pressed={showPassword}
-                  className="absolute right-1.5 top-1/2 grid size-9 -translate-y-1/2 place-items-center rounded-full text-[color:var(--muted-foreground)] transition hover:bg-[color:var(--panel-soft)] hover:text-[color:var(--foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--control-border-soft)]"
+                  className="absolute right-1.5 top-1/2 grid size-9 -translate-y-1/2 place-items-center rounded-full text-muted-foreground transition hover:bg-panel-soft hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-control-border-soft"
                 >
                   {showPassword ? (
                     <EyeOff aria-hidden="true" className="size-4" />
@@ -122,7 +122,7 @@ export function LoginForm({ returnTo = "/dashboard" }: { returnTo?: string }) {
             {error ? (
               <p
                 role="alert"
-                className="m-0 rounded-xl bg-[color:var(--danger-bg)] px-4 py-3 text-sm text-[color:var(--danger-foreground)]"
+                className="m-0 rounded-xl bg-danger-bg px-4 py-3 text-sm text-danger-foreground"
               >
                 {error}
               </p>
@@ -131,7 +131,7 @@ export function LoginForm({ returnTo = "/dashboard" }: { returnTo?: string }) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="mt-1 inline-flex min-h-12 w-full items-center justify-between rounded-full bg-[color:var(--panel-inverse)] px-5 text-sm font-semibold text-[color:var(--panel-inverse-foreground)] transition hover:opacity-80 disabled:cursor-wait disabled:opacity-55"
+              className="mt-1 inline-flex min-h-12 w-full items-center justify-between rounded-full bg-panel-inverse px-5 text-sm font-semibold text-panel-inverse-foreground transition hover:opacity-80 disabled:cursor-wait disabled:opacity-55"
             >
               <span>{isSubmitting ? "Opening your desk…" : "Sign in"}</span>
               <ArrowRight aria-hidden="true" className="size-4" />
@@ -140,7 +140,7 @@ export function LoginForm({ returnTo = "/dashboard" }: { returnTo?: string }) {
         </form>
       )}
 
-      <p className="mb-0 mt-6 text-center text-xs leading-5 text-[color:var(--muted-foreground)]">
+      <p className="mb-0 mt-6 text-center text-xs leading-5 text-muted-foreground">
         This area is reserved for contributors to Okoye’s Log.
       </p>
     </div>

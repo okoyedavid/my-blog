@@ -28,8 +28,8 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           <h1 className="font-serif text-[clamp(3.5rem,8vw,6rem)] leading-none tracking-[-0.075em]">Search</h1>
           <form action="/search" className="mt-8 flex max-w-3xl gap-3">
             <label htmlFor="site-search" className="sr-only">Search articles</label>
-            <input id="site-search" name="query" type="search" defaultValue={query} placeholder="Search stories, topics, or categories" className="min-h-12 min-w-0 flex-1 rounded-full border border-transparent bg-[var(--control-bg)] px-5 py-3 text-[var(--black)] outline-none transition-colors placeholder:text-[var(--control-muted)] focus:border-[var(--control-border)]" />
-            <button type="submit" className="shrink-0 rounded-full bg-[var(--black)] px-5 py-3 text-[var(--white)] transition-opacity hover:opacity-80">Search</button>
+            <input id="site-search" name="query" type="search" defaultValue={query} placeholder="Search stories, topics, or categories" className="min-h-12 min-w-0 flex-1 rounded-full border border-transparent bg-control-bg px-5 py-3 text-ink outline-none transition-colors placeholder:text-control-muted focus:border-control-border" />
+            <button type="submit" className="shrink-0 rounded-full bg-ink px-5 py-3 text-paper transition-opacity hover:opacity-80">Search</button>
           </form>
         </div>
       </section>

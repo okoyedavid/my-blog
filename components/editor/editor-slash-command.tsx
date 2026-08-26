@@ -59,7 +59,7 @@ export function EditorSlashCommand({ clientRect, contextElement, items, selected
   return (
     <div
       ref={menuRef}
-      className="fixed left-0 top-0 z-50 w-[min(320px,calc(100vw-24px))] overflow-y-auto rounded-[24px] border border-[color:var(--border)] bg-[color:var(--panel-strong)]/95 p-2 shadow-[0_28px_90px_-40px_rgba(15,23,42,0.7)] backdrop-blur"
+      className="fixed left-0 top-0 z-50 w-[min(320px,calc(100vw-24px))] overflow-y-auto rounded-[24px] border border-border bg-panel-strong/95 p-2 shadow-[0_28px_90px_-40px_rgba(15,23,42,0.7)] backdrop-blur"
       style={{
         transform: position ? `translate3d(${position.x}px,${position.y}px,0)` : undefined,
         visibility: position ? "visible" : "hidden",
@@ -67,7 +67,7 @@ export function EditorSlashCommand({ clientRect, contextElement, items, selected
       role="menu"
       aria-label="Slash command menu"
     >
-      <div className="mb-2 px-2 pt-1 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted-foreground)]">Insert block</div>
+      <div className="mb-2 px-2 pt-1 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Insert block</div>
       <div className="space-y-1">
         {items.map((item, index) => (
           <button
@@ -76,12 +76,12 @@ export function EditorSlashCommand({ clientRect, contextElement, items, selected
             role="menuitem"
             onMouseDown={(event) => event.preventDefault()}
             onClick={() => onSelect(item)}
-            className={`flex w-full items-start gap-3 rounded-2xl px-3 py-3 text-left transition ${index === selectedIndex ? "bg-[color:var(--brand-500)] text-[color:var(--brand-foreground)]" : "hover:bg-[color:var(--panel-soft)]/80"}`}
+            className={`flex w-full items-start gap-3 rounded-2xl px-3 py-3 text-left transition ${index === selectedIndex ? "bg-brand-500 text-brand-foreground" : "hover:bg-panel-soft/80"}`}
           >
-            <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-current/15 bg-[color:var(--brand-foreground)]/10 text-xs font-semibold">/</span>
+            <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-current/15 bg-brand-foreground/10 text-xs font-semibold">/</span>
             <span className="min-w-0 space-y-1">
               <span className="block text-sm font-semibold">{item.label}</span>
-              <span className={`block text-xs ${index === selectedIndex ? "text-[color:var(--brand-foreground)]/80" : "text-[color:var(--muted-foreground)]"}`}>{item.description}</span>
+              <span className={`block text-xs ${index === selectedIndex ? "text-brand-foreground/80" : "text-muted-foreground"}`}>{item.description}</span>
             </span>
           </button>
         ))}

@@ -4,6 +4,36 @@
   --font-sans: var(--font-dm-sans);
   --font-serif: var(--font-bricolage-grotesque);
   --font-mono: var(--font-jetbrains-mono);
+  --color-ink: var(--black);
+  --color-ink-5: var(--black-5);
+  --color-paper: var(--white);
+  --color-ink-muted: var(--ink-muted);
+  --color-control-bg: var(--control-bg);
+  --color-control-muted: var(--control-muted);
+  --color-control-border: var(--control-border);
+  --color-control-border-soft: var(--control-border-soft);
+  --color-control-focus: var(--control-focus);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-panel: var(--panel);
+  --color-panel-strong: var(--panel-strong);
+  --color-panel-soft: var(--panel-soft);
+  --color-panel-inverse: var(--panel-inverse);
+  --color-panel-inverse-foreground: var(--panel-inverse-foreground);
+  --color-border: var(--border);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-border: var(--brand-border);
+  --color-brand-ink: var(--brand-ink);
+  --color-danger-bg: var(--danger-bg);
+  --color-danger-foreground: var(--danger-foreground);
+  --color-success-bg: var(--success-bg);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning-bg: var(--warning-bg);
+  --color-warning-foreground: var(--warning-foreground);
 }
 
 :root {

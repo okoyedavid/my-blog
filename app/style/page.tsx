@@ -26,7 +26,7 @@ export default function Page() {
       </section>
       <section className="relative py-24">
         <div className="mx-auto block w-[96%] max-w-[68rem]">
-          <div className="rounded-3xl bg-[var(--black-5)] p-12">
+          <div className="rounded-3xl bg-ink-5 p-12">
             <p className="text-xl leading-[1.3] tracking-[-0.01em]">
               Introducing <em>Okoye’s Log</em>, a home for technical writing and project stories.
               Crafted with precision using
@@ -55,19 +55,19 @@ export default function Page() {
             <div className="relative grid grid-cols-1 gap-10 md:grid-cols-[0.25fr_1.25fr]">
               <div className="relative flex flex-col pb-32 pr-2.5 col-span-1 row-span-1">
                 <div className="sticky top-32 flex flex-col">
-                  <a href="#typography" className="bg-transparent px-3 py-4 font-mono text-[1.1em] leading-none text-[var(--black)] no-underline transition-colors hover:text-[var(--ink-muted)] border-l border-[var(--control-border-soft)] pl-4 pr-0 !text-base text-[var(--ink-muted)]">
+                  <a href="#typography" className="bg-transparent px-3 py-4 font-mono text-[1.1em] leading-none text-ink no-underline transition-colors hover:text-ink-muted border-l border-control-border-soft pl-4 pr-0 !text-base text-ink-muted">
                     Typography
                   </a>
-                  <a href="#color" className="bg-transparent px-3 py-4 font-mono text-[1.1em] leading-none text-[var(--black)] no-underline transition-colors hover:text-[var(--ink-muted)] border-l border-[var(--control-border-soft)] pl-4 pr-0 !text-base text-[var(--ink-muted)]">
+                  <a href="#color" className="bg-transparent px-3 py-4 font-mono text-[1.1em] leading-none text-ink no-underline transition-colors hover:text-ink-muted border-l border-control-border-soft pl-4 pr-0 !text-base text-ink-muted">
                     Color
                   </a>
-                  <a href="#components" className="bg-transparent px-3 py-4 font-mono text-[1.1em] leading-none text-[var(--black)] no-underline transition-colors hover:text-[var(--ink-muted)] border-l border-[var(--control-border-soft)] pl-4 pr-0 !text-base text-[var(--ink-muted)]">
+                  <a href="#components" className="bg-transparent px-3 py-4 font-mono text-[1.1em] leading-none text-ink no-underline transition-colors hover:text-ink-muted border-l border-control-border-soft pl-4 pr-0 !text-base text-ink-muted">
                     Components
                   </a>
-                  <a href="#utilities" className="bg-transparent px-3 py-4 font-mono text-[1.1em] leading-none text-[var(--black)] no-underline transition-colors hover:text-[var(--ink-muted)] border-l border-[var(--control-border-soft)] pl-4 pr-0 !text-base text-[var(--ink-muted)]">
+                  <a href="#utilities" className="bg-transparent px-3 py-4 font-mono text-[1.1em] leading-none text-ink no-underline transition-colors hover:text-ink-muted border-l border-control-border-soft pl-4 pr-0 !text-base text-ink-muted">
                     Utilities
                   </a>
-                  <a href="#layout" className="bg-transparent px-3 py-4 font-mono text-[1.1em] leading-none text-[var(--black)] no-underline transition-colors hover:text-[var(--ink-muted)] border-l border-[var(--control-border-soft)] pl-4 pr-0 !text-base text-[var(--ink-muted)]">
+                  <a href="#layout" className="bg-transparent px-3 py-4 font-mono text-[1.1em] leading-none text-ink no-underline transition-colors hover:text-ink-muted border-l border-control-border-soft pl-4 pr-0 !text-base text-ink-muted">
                     Layout
                   </a>
                 </div>
@@ -76,14 +76,14 @@ export default function Page() {
                 <section id="typography" className="relative py-24 pt-0">
                   <h2 className="mb-2 mt-3 font-serif text-[2.5rem] font-medium leading-[1.1] tracking-[-0.035em] mt-0">Typography</h2>
                   <div className="mb-12 mt-24 flex items-center gap-4">
-                    <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Fonts</h3>
-                    <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                    <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Fonts</h3>
+                    <div className="h-px w-full bg-control-border-soft"></div>
                   </div>
                   <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                     <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[100%] sm:max-w-[100%]">
                       <div className="overflow-hidden">
                         <div>
-                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                             <p className="text-xl leading-[1.3] tracking-[-0.01em] font-serif tracking-[-0.05em]">
                               Playfair Display
                             </p>
@@ -107,7 +107,7 @@ export default function Page() {
                     <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[100%] sm:max-w-[100%]">
                       <div className="overflow-hidden">
                         <div>
-                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                             <p className="text-xl leading-[1.3] tracking-[-0.01em] font-sans tracking-normal">
                               Manrope
                             </p>
@@ -131,7 +131,7 @@ export default function Page() {
                     <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[100%] sm:max-w-[100%]">
                       <div className="overflow-hidden">
                         <div>
-                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                             <p className="text-xl leading-[1.3] tracking-[-0.01em] font-mono">
                               Cutive Mono
                             </p>
@@ -154,12 +154,12 @@ export default function Page() {
                     </div>
                   </div>
                   <div className="mb-12 mt-24 flex items-center gap-4">
-                    <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Headings</h3>
-                    <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                    <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Headings</h3>
+                    <div className="h-px w-full bg-control-border-soft"></div>
                   </div>
                   <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                     <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[50%] lg:max-w-[50%] md:flex-none md:basis-[100%] md:max-w-[100%]">
-                      <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                      <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                         <div className="flex gap-4 items-center mb-4">
                           <div>
                             <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white bg-[#d13591]">
@@ -204,7 +204,7 @@ export default function Page() {
                       </div>
                     </div>
                     <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[50%] lg:max-w-[50%] md:flex-none md:basis-[100%] md:max-w-[100%]">
-                      <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                      <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                         <div className="flex gap-4 items-center mb-4">
                           <div>
                             <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">h1</div>
@@ -240,10 +240,10 @@ export default function Page() {
                     </div>
                   </div>
                   <div className="mb-12 mt-24 flex items-center gap-4">
-                    <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Body</h3>
-                    <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                    <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Body</h3>
+                    <div className="h-px w-full bg-control-border-soft"></div>
                   </div>
-                  <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                  <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                     <div>
                       <div className="-mx-2 -mb-8 flex flex-wrap content-stretch mb-0">
                         <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] md:flex-none md:basis-[100%] md:max-w-[100%] mb-0">
@@ -284,11 +284,11 @@ export default function Page() {
                   </div>
                   <div>
                     <h4>Text HTML Tags</h4>
-                    <p className="text-sm leading-[1.4] tracking-[-0.005em] text-[var(--ink-muted)] mb-12">
+                    <p className="text-sm leading-[1.4] tracking-[-0.005em] text-ink-muted mb-12">
                       HTML tags define default text styles.
                     </p>
                   </div>
-                  <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                  <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                     <div>
                       <div className="-mx-2 -mb-8 flex flex-wrap content-stretch mb-0">
                         <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[50%] lg:max-w-[50%] md:flex-none md:basis-[100%] md:max-w-[100%] mb-4">
@@ -339,13 +339,13 @@ export default function Page() {
                     </div>
                   </div>
                   <div>
-                    <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                    <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                       <div className="mb-4">
                         <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                           Blog Rich Text
                         </div>
                       </div>
-                      <div className="space-y-4 [&_a]:underline [&_blockquote]:border-l-2 [&_blockquote]:border-[var(--control-border-soft)] [&_blockquote]:pl-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ul]:list-disc [&_ul]:pl-6">
+                      <div className="space-y-4 [&_a]:underline [&_blockquote]:border-l-2 [&_blockquote]:border-control-border-soft [&_blockquote]:pl-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ul]:list-disc [&_ul]:pl-6">
                         <h1>Heading 1</h1>
                         <h2>Heading 2</h2>
                         <h3>Heading 3</h3>
@@ -396,7 +396,7 @@ export default function Page() {
                   </div>
                   <div>
                     <h4>Text Styles</h4>
-                    <p className="text-sm leading-[1.4] tracking-[-0.005em] text-[var(--ink-muted)]">
+                    <p className="text-sm leading-[1.4] tracking-[-0.005em] text-ink-muted">
                       Text sizes classes when typography size doesn &#x27;t
                       match the default HTML tag.
                     </p>
@@ -407,16 +407,16 @@ export default function Page() {
                   <div>
                     <h2 className="mt-0">Colors</h2>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">
                         Color backgrounds
                       </h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
                         <div className="overflow-hidden">
                           <div>
-                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10 min-h-60 bg-[#dfcccc]"></div>
+                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10 min-h-60 bg-[#dfcccc]"></div>
                           </div>
                           <div>
                             <h4 className="mb-0">Red</h4>
@@ -430,7 +430,7 @@ export default function Page() {
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
                         <div className="overflow-hidden">
                           <div>
-                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10 min-h-60 bg-[#d0d8c0]"></div>
+                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10 min-h-60 bg-[#d0d8c0]"></div>
                           </div>
                           <div>
                             <h4 className="mb-0">Green</h4>
@@ -444,7 +444,7 @@ export default function Page() {
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
                         <div className="overflow-hidden">
                           <div>
-                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10 min-h-60 bg-[#ebe9d7]"></div>
+                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10 min-h-60 bg-[#ebe9d7]"></div>
                           </div>
                           <div>
                             <h4 className="mb-0">Yellow</h4>
@@ -458,7 +458,7 @@ export default function Page() {
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
                         <div className="overflow-hidden">
                           <div>
-                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10 min-h-60 bg-[#c3c0d8]"></div>
+                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10 min-h-60 bg-[#c3c0d8]"></div>
                           </div>
                           <div>
                             <h4 className="mb-0">Purple</h4>
@@ -472,7 +472,7 @@ export default function Page() {
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
                         <div className="overflow-hidden">
                           <div>
-                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10 min-h-60 bg-[#c0d2d8]"></div>
+                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10 min-h-60 bg-[#c0d2d8]"></div>
                           </div>
                           <div>
                             <h4 className="mb-0">Blue</h4>
@@ -486,7 +486,7 @@ export default function Page() {
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
                         <div className="overflow-hidden">
                           <div>
-                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10 min-h-60 bg-[#262626] text-white"></div>
+                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10 min-h-60 bg-[#262626] text-white"></div>
                           </div>
                           <div>
                             <h4 className="mb-0">Black</h4>
@@ -500,7 +500,7 @@ export default function Page() {
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[100%] lg:max-w-[100%]">
                         <div className="overflow-hidden">
                           <div>
-                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10 min-h-60 bg-white border border-[var(--control-border-soft)]"></div>
+                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10 min-h-60 bg-white border border-control-border-soft"></div>
                           </div>
                           <div>
                             <h4 className="mb-0">White</h4>
@@ -514,7 +514,7 @@ export default function Page() {
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[100%] lg:max-w-[100%]">
                         <div>
                           <h4>Color Swatches</h4>
-                          <p className="text-sm leading-[1.4] tracking-[-0.005em] text-[var(--ink-muted)]">
+                          <p className="text-sm leading-[1.4] tracking-[-0.005em] text-ink-muted">
                             Easily customize colors using variables. To change a
                             container &#x27;s background color, simply apply the
                             class u-bg-&#x27;yourcolor &#x27;.
@@ -523,8 +523,8 @@ export default function Page() {
                       </div>
                     </div>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Text</h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Text</h3>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] md:flex-none md:basis-[100%] md:max-w-[100%]">
@@ -558,7 +558,7 @@ export default function Page() {
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[100%] lg:max-w-[100%]">
                         <div>
                           <h4>Text Color</h4>
-                          <p className="text-sm leading-[1.4] tracking-[-0.005em] text-[var(--ink-muted)]">
+                          <p className="text-sm leading-[1.4] tracking-[-0.005em] text-ink-muted">
                             To change text color, simply apply the class
                             u-bg-&#x27;yourcolor &#x27;to a container or text
                             element.
@@ -572,13 +572,13 @@ export default function Page() {
                   <div>
                     <h2 className="mt-0">Components</h2>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Button</h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Button</h3>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] md:flex-none md:basis-[50%] md:max-w-[50%] sm:flex-none sm:basis-[100%] sm:max-w-[100%]">
                         <div className="overflow-hidden">
-                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10 items-center">
+                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10 items-center">
                             <a href="#">Text</a>
                           </div>
                           <div>
@@ -591,8 +591,8 @@ export default function Page() {
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] md:flex-none md:basis-[50%] md:max-w-[50%] sm:flex-none sm:basis-[100%] sm:max-w-[100%] mb-16">
                         <div className="overflow-hidden">
-                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10 items-center">
-                            <a href="#" className="inline-block cursor-pointer rounded-full bg-[var(--black)] px-4 py-[0.66em] font-mono text-base leading-none text-[var(--white)] transition-opacity hover:opacity-50">
+                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10 items-center">
+                            <a href="#" className="inline-block cursor-pointer rounded-full bg-ink px-4 py-[0.66em] font-mono text-base leading-none text-paper transition-opacity hover:opacity-50">
                               Button
                             </a>
                           </div>
@@ -606,10 +606,10 @@ export default function Page() {
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] md:flex-none md:basis-[50%] md:max-w-[50%] sm:flex-none sm:basis-[100%] sm:max-w-[100%]">
                         <div className="overflow-hidden">
-                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10 items-center">
+                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10 items-center">
                             <a
                               href="#"
-                              className="inline-flex items-center gap-4 rounded-none bg-transparent px-0 py-[0.33em] font-mono text-base leading-none transition-opacity hover:opacity-50 text-[var(--black)]"
+                              className="inline-flex items-center gap-4 rounded-none bg-transparent px-0 py-[0.33em] font-mono text-base leading-none transition-opacity hover:opacity-50 text-ink"
                             >
                               Button
                             </a>
@@ -627,7 +627,7 @@ export default function Page() {
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] md:flex-none md:basis-[50%] md:max-w-[50%] sm:flex-none sm:basis-[100%] sm:max-w-[100%]">
                         <div className="overflow-hidden">
-                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10 bg-[#262626] text-white items-center">
+                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10 bg-[#262626] text-white items-center">
                             <a href="#" className="text-white">
                               Text
                             </a>
@@ -642,7 +642,7 @@ export default function Page() {
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] md:flex-none md:basis-[50%] md:max-w-[50%] sm:flex-none sm:basis-[100%] sm:max-w-[100%]">
                         <div className="overflow-hidden">
-                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10 bg-[#262626] text-white items-center">
+                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10 bg-[#262626] text-white items-center">
                             <a href="#" className="inline-block cursor-pointer rounded-full px-4 py-[0.66em] font-mono text-base leading-none transition-opacity hover:opacity-50 bg-[#fbf7f1] text-[#313e34]">
                               Button
                             </a>
@@ -660,7 +660,7 @@ export default function Page() {
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] md:flex-none md:basis-[50%] md:max-w-[50%] sm:flex-none sm:basis-[100%] sm:max-w-[100%]">
                         <div className="overflow-hidden">
-                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10 bg-[#262626] text-white items-center">
+                          <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10 bg-[#262626] text-white items-center">
                             <a
                               href="#"
                               className="inline-flex items-center gap-4 rounded-none bg-transparent px-0 py-[0.33em] font-mono text-base leading-none transition-opacity hover:opacity-50 text-white"
@@ -681,8 +681,8 @@ export default function Page() {
                       </div>
                     </div>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Form</h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Form</h3>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[100%] lg:max-w-[100%]">
@@ -705,12 +705,12 @@ export default function Page() {
                                   <div className="w-full max-sm:mb-0">
                                     <label
                                       htmlFor="styles_contact_name"
-                                      className="my-2.5 block font-mono text-[1.1rem] leading-none tracking-[-0.05em] !mb-1.5 !mt-0 !text-sm !tracking-[-0.025em] text-[var(--ink-muted)]"
+                                      className="my-2.5 block font-mono text-[1.1rem] leading-none tracking-[-0.05em] !mb-1.5 !mt-0 !text-sm !tracking-[-0.025em] text-ink-muted"
                                     >
                                       First Name:
                                     </label>
                                     <input
-                                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--black-5)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-ink-5 px-4 py-5 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                                       maxLength={256}
                                       name="First-name"
                                       data-name="First Name"
@@ -722,12 +722,12 @@ export default function Page() {
                                   <div className="w-full">
                                     <label
                                       htmlFor="styles_contact_last-name"
-                                      className="my-2.5 block font-mono text-[1.1rem] leading-none tracking-[-0.05em] !mb-1.5 !mt-0 !text-sm !tracking-[-0.025em] text-[var(--ink-muted)]"
+                                      className="my-2.5 block font-mono text-[1.1rem] leading-none tracking-[-0.05em] !mb-1.5 !mt-0 !text-sm !tracking-[-0.025em] text-ink-muted"
                                     >
                                       Last Name:
                                     </label>
                                     <input
-                                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--black-5)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-ink-5 px-4 py-5 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                                       maxLength={256}
                                       name="Last-Name"
                                       data-name="Last Name"
@@ -741,12 +741,12 @@ export default function Page() {
                                   <div className="w-full max-sm:mb-0">
                                     <label
                                       htmlFor="styles_contact_phone"
-                                      className="my-2.5 block font-mono text-[1.1rem] leading-none tracking-[-0.05em] !mb-1.5 !mt-0 !text-sm !tracking-[-0.025em] text-[var(--ink-muted)]"
+                                      className="my-2.5 block font-mono text-[1.1rem] leading-none tracking-[-0.05em] !mb-1.5 !mt-0 !text-sm !tracking-[-0.025em] text-ink-muted"
                                     >
                                       Phone Number:
                                     </label>
                                     <input
-                                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--black-5)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-ink-5 px-4 py-5 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                                       maxLength={256}
                                       name="Phone-Number"
                                       data-name="Phone Number"
@@ -758,12 +758,12 @@ export default function Page() {
                                   <div className="w-full">
                                     <label
                                       htmlFor="styles_contact_email"
-                                      className="my-2.5 block font-mono text-[1.1rem] leading-none tracking-[-0.05em] !mb-1.5 !mt-0 !text-sm !tracking-[-0.025em] text-[var(--ink-muted)]"
+                                      className="my-2.5 block font-mono text-[1.1rem] leading-none tracking-[-0.05em] !mb-1.5 !mt-0 !text-sm !tracking-[-0.025em] text-ink-muted"
                                     >
                                       Email Address:
                                     </label>
                                     <input
-                                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--black-5)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-ink-5 px-4 py-5 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                                       maxLength={256}
                                       name="Email"
                                       data-name="Email"
@@ -777,12 +777,12 @@ export default function Page() {
                                   <div className="w-full">
                                     <label
                                       htmlFor="styles_contact_subject"
-                                      className="my-2.5 block font-mono text-[1.1rem] leading-none tracking-[-0.05em] !mb-1.5 !mt-0 !text-sm !tracking-[-0.025em] text-[var(--ink-muted)]"
+                                      className="my-2.5 block font-mono text-[1.1rem] leading-none tracking-[-0.05em] !mb-1.5 !mt-0 !text-sm !tracking-[-0.025em] text-ink-muted"
                                     >
                                       Subject:
                                     </label>
                                     <input
-                                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--black-5)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-ink-5 px-4 py-5 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                                       maxLength={256}
                                       name="Subject"
                                       data-name="Subject"
@@ -796,7 +796,7 @@ export default function Page() {
                               <div className="flex flex-col items-start justify-between">
                                 <label
                                   htmlFor="styles_contact_message"
-                                  className="my-2.5 block font-mono text-[1.1rem] leading-none tracking-[-0.05em] !mb-1.5 !mt-0 !text-sm !tracking-[-0.025em] text-[var(--ink-muted)]"
+                                  className="my-2.5 block font-mono text-[1.1rem] leading-none tracking-[-0.05em] !mb-1.5 !mt-0 !text-sm !tracking-[-0.025em] text-ink-muted"
                                 >
                                   Message:
                                 </label>
@@ -806,22 +806,22 @@ export default function Page() {
                                   maxLength={5000}
                                   data-name="Message"
                                   placeholder="Your message ..."
-                                  className="mb-4 block min-h-36 w-full rounded-2xl border border-transparent bg-[var(--black-5)] p-4 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                                  className="mb-4 block min-h-36 w-full rounded-2xl border border-transparent bg-ink-5 p-4 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                                 ></textarea>
                                 <input
                                   type="submit"
                                   data-wait="Please wait..."
-                                  className="inline-block cursor-pointer rounded-full bg-[var(--black)] px-4 py-[0.66em] font-mono text-base leading-none text-[var(--white)] transition-opacity hover:opacity-50"
+                                  className="inline-block cursor-pointer rounded-full bg-ink px-4 py-[0.66em] font-mono text-base leading-none text-paper transition-opacity hover:opacity-50"
                                   value="Submit"
                                 />
                               </div>
                             </form>
-                            <div className="hidden bg-[var(--success-bg)] p-5 text-center text-[var(--success-foreground)]">
+                            <div className="hidden bg-success-bg p-5 text-center text-success-foreground">
                               <div>
                                 Thank you! Your submission has been received!
                               </div>
                             </div>
-                            <div className="mt-2.5 hidden bg-[var(--danger-bg)] p-2.5 text-[var(--danger-foreground)]">
+                            <div className="mt-2.5 hidden bg-danger-bg p-2.5 text-danger-foreground">
                               <div>
                                 Oops! Something went wrong while submitting the
                                 form.
@@ -832,14 +832,14 @@ export default function Page() {
                       </div>
                     </div>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Card</h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Card</h3>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] md:flex-none md:basis-[50%] md:max-w-[50%] sm:flex-none sm:basis-[100%] sm:max-w-[100%]">
-                        <div className="relative mb-4 flex flex-1 flex-col justify-start overflow-hidden rounded-2xl bg-[var(--black-5)] p-6">
+                        <div className="relative mb-4 flex flex-1 flex-col justify-start overflow-hidden rounded-2xl bg-ink-5 p-6">
                           <div>
-                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                               <img
                                 src="https://cdn.prod.website-files.com/6524458df9ed19d52963b63d/65244626e53f951c5fd36270_hassaan-qaiser-bKfkhVRAJTQ-unsplash.jpg"
                                 loading="lazy"
@@ -867,9 +867,9 @@ export default function Page() {
                         </div>
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] md:flex-none md:basis-[50%] md:max-w-[50%] sm:flex-none sm:basis-[100%] sm:max-w-[100%]">
-                        <div className="relative mb-4 flex flex-1 flex-col justify-start overflow-hidden rounded-2xl bg-[var(--black-5)] p-6 text-white bg-[#262626]">
+                        <div className="relative mb-4 flex flex-1 flex-col justify-start overflow-hidden rounded-2xl bg-ink-5 p-6 text-white bg-[#262626]">
                           <div>
-                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                            <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                               <img
                                 src="https://cdn.prod.website-files.com/6524458df9ed19d52963b63d/65244626e53f951c5fd36270_hassaan-qaiser-bKfkhVRAJTQ-unsplash.jpg"
                                 loading="lazy"
@@ -910,8 +910,8 @@ export default function Page() {
                       {/* U {Class Name} */}
                     </div>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Margin</h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Margin</h3>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
@@ -1117,8 +1117,8 @@ export default function Page() {
                       </div>
                     </div>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Padding</h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Padding</h3>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
@@ -1278,12 +1278,12 @@ export default function Page() {
                       </div>
                     </div>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Alignment</h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Alignment</h3>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[50%] lg:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Text Center
                           </div>
@@ -1295,7 +1295,7 @@ export default function Page() {
                         </div>
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[50%] lg:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Text Right
                           </div>
@@ -1308,12 +1308,12 @@ export default function Page() {
                       </div>
                     </div>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Overflow</h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Overflow</h3>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[50%] lg:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Overflow Hidden
                           </div>
@@ -1325,7 +1325,7 @@ export default function Page() {
                         </div>
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[50%] lg:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Overflow Visible
                           </div>
@@ -1338,14 +1338,14 @@ export default function Page() {
                       </div>
                     </div>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">
                         Display + position
                       </h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Display None
                           </div>
@@ -1357,7 +1357,7 @@ export default function Page() {
                         </div>
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Display Block
                           </div>
@@ -1369,7 +1369,7 @@ export default function Page() {
                         </div>
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Display Flex
                           </div>
@@ -1379,7 +1379,7 @@ export default function Page() {
                         </div>
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Position Relative
                           </div>
@@ -1392,12 +1392,12 @@ export default function Page() {
                       </div>
                     </div>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Size</h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Size</h3>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Width 100
                           </div>
@@ -1407,7 +1407,7 @@ export default function Page() {
                         </div>
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Height 100
                           </div>
@@ -1419,12 +1419,12 @@ export default function Page() {
                       </div>
                     </div>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Helpers</h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Helpers</h3>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="-mx-2 -mb-8 flex flex-wrap content-stretch">
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Image Cover
                           </div>
@@ -1451,7 +1451,7 @@ export default function Page() {
                         </div>
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Link Cover
                           </div>
@@ -1473,7 +1473,7 @@ export default function Page() {
                         </div>
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Aspect 1x1
                           </div>
@@ -1487,7 +1487,7 @@ export default function Page() {
                         </div>
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Z-Index 1
                           </div>
@@ -1501,7 +1501,7 @@ export default function Page() {
                         </div>
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Screen Reader Only
                           </div>
@@ -1517,7 +1517,7 @@ export default function Page() {
                         </div>
                       </div>
                       <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[33.3333%] lg:max-w-[33.3333%] sm:flex-none sm:basis-[50%] sm:max-w-[50%] flex-none basis-[100%] max-w-[100%]">
-                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-[var(--black-5)] p-10">
+                        <div className="relative mb-6 flex min-h-[120px] w-full flex-col items-start justify-center gap-1 rounded-2xl bg-ink-5 p-10">
                           <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                             U Border
                           </div>
@@ -1537,8 +1537,8 @@ export default function Page() {
                   <div>
                     <h2 className="mt-0">Layout</h2>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Section</h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Section</h3>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="relative rounded-2xl border border-[#0073e6] bg-[#0073e61a] p-4 text-center">
                       <div className="relative py-24">
@@ -1546,8 +1546,8 @@ export default function Page() {
                       </div>
                     </div>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Container</h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Container</h3>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="mx-auto block w-[96%] max-w-[68rem]">
                       <div className="relative rounded-2xl border border-[#0073e6] bg-[#0073e61a] p-4 text-center">
@@ -1559,8 +1559,8 @@ export default function Page() {
                       </div>
                     </div>
                     <div className="mb-12 mt-24 flex items-center gap-4">
-                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">12 Columns Grid</h3>
-                      <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                      <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">12 Columns Grid</h3>
+                      <div className="h-px w-full bg-control-border-soft"></div>
                     </div>
                     <div className="-mx-2 -mb-8 flex flex-wrap content-stretch mb-0">
                       <div className="mb-8 min-w-0 flex-1 px-2">
@@ -1622,10 +1622,10 @@ export default function Page() {
                     </div>
                     <div>
                       <div className="mb-12 mt-24 flex items-center gap-4">
-                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">
+                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">
                           12 Columns Grid - Desktop
                         </h3>
-                        <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                        <div className="h-px w-full bg-control-border-soft"></div>
                       </div>
                       <div className="-mx-2 -mb-8 flex flex-wrap content-stretch mb-0">
                         <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[8.3333%] lg:max-w-[8.3333%]">
@@ -1770,10 +1770,10 @@ export default function Page() {
                     </div>
                     <div>
                       <div className="mb-12 mt-24 flex items-center gap-4">
-                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">
+                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">
                           12 Columns Grid - Tablet
                         </h3>
-                        <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                        <div className="h-px w-full bg-control-border-soft"></div>
                       </div>
                       <div>
                         <div className="-mx-2 -mb-8 flex flex-wrap content-stretch mb-0">
@@ -1924,10 +1924,10 @@ export default function Page() {
                     </div>
                     <div>
                       <div className="mb-12 mt-24 flex items-center gap-4">
-                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">
+                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">
                           12 Columns Grid - Mobile Landscape
                         </h3>
-                        <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                        <div className="h-px w-full bg-control-border-soft"></div>
                       </div>
                       <div>
                         <div className="-mx-2 -mb-8 flex flex-wrap content-stretch mb-0">
@@ -2078,10 +2078,10 @@ export default function Page() {
                     </div>
                     <div>
                       <div className="mb-12 mt-24 flex items-center gap-4">
-                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">
+                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">
                           12 Columns Grid - Mobile Portrait
                         </h3>
-                        <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                        <div className="h-px w-full bg-control-border-soft"></div>
                       </div>
                       <div>
                         <div className="-mx-2 -mb-8 flex flex-wrap content-stretch mb-0">
@@ -2232,14 +2232,14 @@ export default function Page() {
                     </div>
                     <div>
                       <div className="mb-12 mt-24 flex items-center gap-4">
-                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">Align columns</h3>
-                        <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">Align columns</h3>
+                        <div className="h-px w-full bg-control-border-soft"></div>
                       </div>
                       <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">Row</div>
                       <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                         Row Align Center
                       </div>
-                      <div className="mt-1 h-[200px] rounded-2xl bg-[var(--black-5)] p-5">
+                      <div className="mt-1 h-[200px] rounded-2xl bg-ink-5 p-5">
                         <div className="-mx-2 -mb-8 flex flex-wrap content-stretch items-center h-full">
                           <div className="mb-8 min-w-0 flex-1 px-2 mb-0">
                             <div className="relative rounded-2xl border border-[#0073e6] bg-[#0073e61a] p-4 text-center">
@@ -2270,7 +2270,7 @@ export default function Page() {
                       <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                         Row Align End
                       </div>
-                      <div className="mt-1 h-[200px] rounded-2xl bg-[var(--black-5)] p-5">
+                      <div className="mt-1 h-[200px] rounded-2xl bg-ink-5 p-5">
                         <div className="-mx-2 -mb-8 flex flex-wrap content-stretch items-end h-full">
                           <div className="mb-8 min-w-0 flex-1 px-2 mb-0">
                             <div className="relative rounded-2xl border border-[#0073e6] bg-[#0073e61a] p-4 text-center">
@@ -2298,17 +2298,17 @@ export default function Page() {
                     </div>
                     <div>
                       <div className="mb-12 mt-24 flex items-center gap-4">
-                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">
+                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">
                           Justify columns
                         </h3>
-                        <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                        <div className="h-px w-full bg-control-border-soft"></div>
                       </div>
                       <div>
                         <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">Row</div>
                         <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                           Row Justify End
                         </div>
-                        <div className="mt-1 h-[200px] rounded-2xl bg-[var(--black-5)] p-5">
+                        <div className="mt-1 h-[200px] rounded-2xl bg-ink-5 p-5">
                           <div className="-mx-2 -mb-8 flex flex-wrap content-stretch justify-end">
                             <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[25%] lg:max-w-[25%]">
                               <div className="relative rounded-2xl border border-[#0073e6] bg-[#0073e61a] p-4 text-center">
@@ -2332,7 +2332,7 @@ export default function Page() {
                         <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                           Row Justify Center
                         </div>
-                        <div className="mt-1 h-[200px] rounded-2xl bg-[var(--black-5)] p-5">
+                        <div className="mt-1 h-[200px] rounded-2xl bg-ink-5 p-5">
                           <div className="-mx-2 -mb-8 flex flex-wrap content-stretch justify-center">
                             <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[25%] lg:max-w-[25%]">
                               <div className="relative rounded-2xl border border-[#0073e6] bg-[#0073e61a] p-4 text-center">
@@ -2356,7 +2356,7 @@ export default function Page() {
                         <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                           Row Justify Around
                         </div>
-                        <div className="mt-1 h-[200px] rounded-2xl bg-[var(--black-5)] p-5">
+                        <div className="mt-1 h-[200px] rounded-2xl bg-ink-5 p-5">
                           <div className="-mx-2 -mb-8 flex flex-wrap content-stretch justify-around">
                             <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[25%] lg:max-w-[25%]">
                               <div className="relative rounded-2xl border border-[#0073e6] bg-[#0073e61a] p-4 text-center">
@@ -2380,7 +2380,7 @@ export default function Page() {
                         <div className="relative -top-px my-[0.1em] mr-[0.2em] inline-block rounded-[3px] bg-[#0073e6] px-[0.6em] py-[0.08em] font-mono text-xs leading-[1.7] tracking-[-0.025em] text-white">
                           Row Justify Between
                         </div>
-                        <div className="mt-1 h-[200px] rounded-2xl bg-[var(--black-5)] p-5">
+                        <div className="mt-1 h-[200px] rounded-2xl bg-ink-5 p-5">
                           <div className="-mx-2 -mb-8 flex flex-wrap content-stretch justify-between">
                             <div className="mb-8 min-w-0 flex-1 px-2 lg:flex-none lg:basis-[25%] lg:max-w-[25%]">
                               <div className="relative rounded-2xl border border-[#0073e6] bg-[#0073e61a] p-4 text-center">
@@ -2402,10 +2402,10 @@ export default function Page() {
                     </div>
                     <div>
                       <div className="mb-12 mt-24 flex items-center gap-4">
-                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">
+                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">
                           Reorder columns
                         </h3>
-                        <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                        <div className="h-px w-full bg-control-border-soft"></div>
                       </div>
                       <div className="-mx-2 -mb-8 flex flex-wrap content-stretch mb-0">
                         <div className="mb-8 min-w-0 flex-1 px-2 lg:order-first">
@@ -2494,10 +2494,10 @@ export default function Page() {
                     </div>
                     <div>
                       <div className="mb-12 mt-24 flex items-center gap-4">
-                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-[var(--ink-muted)]">
+                        <h3 className="m-0 whitespace-nowrap pr-2 font-mono text-[0.8rem] font-normal uppercase tracking-[0.1em] text-ink-muted">
                           Other columns modifiers
                         </h3>
-                        <div className="h-px w-full bg-[var(--control-border-soft)]"></div>
+                        <div className="h-px w-full bg-control-border-soft"></div>
                       </div>
                       <h4>Shrink Column</h4>
                       <div className="-mx-2 -mb-8 flex flex-wrap content-stretch mb-0">

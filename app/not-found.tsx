@@ -22,7 +22,7 @@ export default function Page() {
         <div className="mb-8 text-base leading-6 tracking-[0.0125em]">
           The page you are looking for doesn &#x27;t exist or has been moved
         </div>
-        <Link href="/" className="inline-block cursor-pointer rounded-full border-0 bg-[var(--black)] px-4 py-[0.66em] font-mono text-base leading-none text-[var(--white)] no-underline transition-opacity hover:opacity-50">
+        <Link href="/" className="inline-block cursor-pointer rounded-full border-0 bg-ink px-4 py-[0.66em] font-mono text-base leading-none text-paper no-underline transition-opacity hover:opacity-50">
           Home Page
         </Link>
       </div>

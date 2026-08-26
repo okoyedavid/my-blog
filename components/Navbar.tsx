@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <div
       data-animation="over-left"
-      className="site-navbar sticky top-0 z-[999] bg-[var(--white)]/90 py-3 backdrop-blur-xl"
+      className="site-navbar sticky top-0 z-[999] bg-paper/90 py-3 backdrop-blur-xl"
       data-easing2="ease"
       data-easing="ease-out-cubic"
       data-collapse="all"
@@ -57,7 +57,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/all-blogs"
-                    className="rounded-full px-3 py-2 font-mono text-xs font-medium tracking-[-0.02em] hover:bg-[var(--control-bg)] hover:opacity-100"
+                    className="rounded-full px-3 py-2 font-mono text-xs font-medium tracking-[-0.02em] hover:bg-control-bg hover:opacity-100"
                   >
                     All Blogs
                   </Link>
@@ -65,7 +65,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/tag/featured-blogs"
-                    className="rounded-full px-3 py-2 font-mono text-xs font-medium tracking-[-0.02em] hover:bg-[var(--control-bg)] hover:opacity-100"
+                    className="rounded-full px-3 py-2 font-mono text-xs font-medium tracking-[-0.02em] hover:bg-control-bg hover:opacity-100"
                   >
                     Featured Blogs
                   </Link>
@@ -73,7 +73,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/tag/most-popular"
-                    className="rounded-full px-3 py-2 font-mono text-xs font-medium tracking-[-0.02em] hover:bg-[var(--control-bg)] hover:opacity-100"
+                    className="rounded-full px-3 py-2 font-mono text-xs font-medium tracking-[-0.02em] hover:bg-control-bg hover:opacity-100"
                   >
                     Most Popular
                   </Link>
@@ -87,7 +87,7 @@ export default function Navbar() {
                 className="relative mb-0 w-28 sm:w-52 xl:w-60"
               >
                 <input
-                  className="block h-10 w-full rounded-full border border-[var(--control-border-soft)] bg-[var(--control-bg)] py-0 pl-4 pr-10 text-sm font-medium text-[var(--black)] outline-none transition-[border-color,background-color,box-shadow] placeholder:text-[var(--control-muted)] hover:border-[var(--control-border)] focus:border-[var(--control-border)] focus:bg-[var(--white)] focus:ring-2 focus:ring-[var(--control-border-soft)]"
+                  className="block h-10 w-full rounded-full border border-control-border-soft bg-control-bg py-0 pl-4 pr-10 text-sm font-medium text-ink outline-none transition-[border-color,background-color,box-shadow] placeholder:text-control-muted hover:border-control-border focus:border-control-border focus:bg-paper focus:ring-2 focus:ring-control-border-soft"
                   maxLength={256}
                   name="query"
                   placeholder="Search blogs"
@@ -98,7 +98,7 @@ export default function Navbar() {
                 <button
                   type="submit"
                   aria-label="Submit search"
-                  className="absolute right-1 top-1/2 flex size-8 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-[var(--black)] p-0 text-[var(--white)] transition-opacity hover:opacity-75"
+                  className="absolute right-1 top-1/2 flex size-8 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-ink p-0 text-paper transition-opacity hover:opacity-75"
                 >
                   <div className="size-3.5 origin-center">
                     <svg
@@ -123,21 +123,21 @@ export default function Navbar() {
                 aria-expanded={isMenuOpen}
                 aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
                 onClick={() => setIsMenuOpen((open) => !open)}
-                className="relative z-[2] flex size-10 flex-none cursor-pointer items-center justify-center rounded-full border border-[var(--control-border)] bg-transparent p-0 transition-opacity hover:opacity-75"
+                className="relative z-[2] flex size-10 flex-none cursor-pointer items-center justify-center rounded-full border border-control-border bg-transparent p-0 transition-opacity hover:opacity-75"
               >
                 <div className="relative size-full">
                   <div
                     className={`absolute inset-0 flex size-full items-center justify-center gap-0.5 transition-opacity ${isMenuOpen ? "opacity-0" : "opacity-100"}`}
                   >
-                    <div className="size-1 rounded-full bg-[var(--black)]"></div>
-                    <div className="size-1 rounded-full bg-[var(--black)]"></div>
-                    <div className="size-1 rounded-full bg-[var(--black)]"></div>
+                    <div className="size-1 rounded-full bg-ink"></div>
+                    <div className="size-1 rounded-full bg-ink"></div>
+                    <div className="size-1 rounded-full bg-ink"></div>
                   </div>
                   <div
                     className={`absolute inset-0 flex size-full items-center justify-center transition-opacity ${isMenuOpen ? "opacity-100" : "opacity-0"}`}
                   >
-                    <div className="absolute h-[0.6em] w-0.5 -rotate-45 bg-[var(--black)]"></div>
-                    <div className="absolute h-[0.6em] w-0.5 rotate-45 bg-[var(--black)]"></div>
+                    <div className="absolute h-[0.6em] w-0.5 -rotate-45 bg-ink"></div>
+                    <div className="absolute h-[0.6em] w-0.5 rotate-45 bg-ink"></div>
                   </div>
                 </div>
               </button>
@@ -150,7 +150,7 @@ export default function Navbar() {
               if ((event.target as HTMLElement).closest("a"))
                 setIsMenuOpen(false);
             }}
-            className={`fixed inset-0 z-40 flex h-dvh items-stretch overflow-y-auto bg-[var(--white)] transition-[opacity,visibility] duration-300 ${isMenuOpen ? "visible opacity-100" : "invisible pointer-events-none opacity-0"}`}
+            className={`fixed inset-0 z-40 flex h-dvh items-stretch overflow-y-auto bg-paper transition-[opacity,visibility] duration-300 ${isMenuOpen ? "visible opacity-100" : "invisible pointer-events-none opacity-0"}`}
           >
             <div className="relative flex size-full flex-col justify-between pt-24">
               <div className="relative mx-auto flex w-[96%] max-w-[68rem] flex-col justify-between">

@@ -106,11 +106,11 @@ export default function Footer() {
                   data-wf-element-id="01be6d1d-102d-b0c8-3d0d-69ad6264842a"
                 >
                   <div className="w-full">
-                    <label htmlFor="newsletter_email" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
+                    <label htmlFor="newsletter_email" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-ink-muted">
                       Email Address
                     </label>
                     <input
-                      className="mb-3 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                      className="mb-3 block min-h-10 w-full rounded-full border border-transparent bg-control-bg px-4 py-5 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                       maxLength={256}
                       name="Email"
                       data-name="Email"
@@ -121,12 +121,12 @@ export default function Footer() {
                     />
                   </div>
                   <div className="w-full">
-                    <label htmlFor="name" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
+                    <label htmlFor="name" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-ink-muted">
                       Full Name
                     </label>
                     <div className="flex gap-1">
                       <input
-                        className="mb-0 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                        className="mb-0 block min-h-10 w-full rounded-full border border-transparent bg-control-bg px-4 py-5 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                         maxLength={256}
                         name="Full-name"
                         data-name="Full name"
@@ -138,13 +138,13 @@ export default function Footer() {
                       <input
                         type="submit"
                         data-wait="Please wait..."
-                        className="inline-block cursor-pointer rounded-full bg-[var(--black)] px-4 py-[0.66em] font-mono text-base leading-none text-[var(--white)] transition-opacity hover:opacity-50"
+                        className="inline-block cursor-pointer rounded-full bg-ink px-4 py-[0.66em] font-mono text-base leading-none text-paper transition-opacity hover:opacity-50"
                         value="Submit"
                       />
                     </div>
                   </div>
                 </form>
-                <div className="hidden rounded-2xl bg-[var(--black-5)] p-5 text-center">
+                <div className="hidden rounded-2xl bg-ink-5 p-5 text-center">
                   <div className="text-xl leading-[1.3] tracking-[-0.01em]">
                     Thank you! <br />
                   </div>
@@ -152,7 +152,7 @@ export default function Footer() {
                     Your submission has been received!
                   </div>
                 </div>
-                <div className="mt-2.5 hidden bg-[var(--danger-bg)] p-2.5 text-[var(--danger-foreground)]">
+                <div className="mt-2.5 hidden bg-danger-bg p-2.5 text-danger-foreground">
                   <div>
                     Oops! Something went wrong while submitting the form.
                   </div>

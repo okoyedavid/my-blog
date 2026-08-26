@@ -47,7 +47,7 @@ export function NewPostButton({
         disabled={isCreating}
         aria-label={collapsed ? "Create a new post" : undefined}
         title={collapsed ? "New post" : undefined}
-        className={`flex min-h-11 w-full items-center rounded-full bg-[color:var(--panel-inverse)] text-sm font-semibold text-[color:var(--panel-inverse-foreground)] transition hover:opacity-80 disabled:cursor-wait disabled:opacity-55 ${collapsed ? "justify-center px-0" : "justify-between px-4"}`}
+        className={`flex min-h-11 w-full items-center rounded-full bg-panel-inverse text-sm font-semibold text-panel-inverse-foreground transition hover:opacity-80 disabled:cursor-wait disabled:opacity-55 ${collapsed ? "justify-center px-0" : "justify-between px-4"}`}
       >
         <span className="flex items-center gap-2.5">
           <PenLine aria-hidden="true" className="size-4" />
@@ -56,7 +56,7 @@ export function NewPostButton({
         {collapsed ? null : <span aria-hidden="true">＋</span>}
       </button>
       {error && !collapsed ? (
-        <p role="alert" className="mb-0 mt-2 px-2 text-xs text-[color:var(--danger-foreground)]">
+        <p role="alert" className="mb-0 mt-2 px-2 text-xs text-danger-foreground">
           {error}
         </p>
       ) : null}

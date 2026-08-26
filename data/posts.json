@@ -1,6 +1,27 @@
 {
   "posts": [
     {
+      "id": "2ab7b4a9-fd9b-492f-8b2b-b31e944c0b9d",
+      "title": "",
+      "slug": "",
+      "excerpt": "",
+      "coverImage": null,
+      "contentJson": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph"
+          }
+        ]
+      },
+      "contentHtml": "<p></p>",
+      "plainText": "",
+      "status": "draft",
+      "createdAt": "2026-08-26T19:10:42.874Z",
+      "updatedAt": "2026-08-26T19:10:42.874Z",
+      "publishedAt": null
+    },
+    {
       "id": "a2541bfe-ad50-4e40-86b4-b3107b2a3b7b",
       "title": "",
       "slug": "",

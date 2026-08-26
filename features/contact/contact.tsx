@@ -112,11 +112,11 @@ export default function Contact() {
               >
                 <div className="mb-4 flex gap-4">
                   <div className="w-full">
-                    <label htmlFor="Name" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
+                    <label htmlFor="Name" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-ink-muted">
                       Name
                     </label>
                     <input
-                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-control-bg px-4 py-5 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                       maxLength={256}
                       name="Name"
                       data-name="Name"
@@ -127,11 +127,11 @@ export default function Contact() {
                     />
                   </div>
                   <div className="w-full">
-                    <label htmlFor="Last-Name" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
+                    <label htmlFor="Last-Name" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-ink-muted">
                       Last Name
                     </label>
                     <input
-                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-control-bg px-4 py-5 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                       maxLength={256}
                       name="Last-Name"
                       data-name="Last Name"
@@ -143,11 +143,11 @@ export default function Contact() {
                 </div>
                 <div className="mb-4 flex gap-4">
                   <div className="w-full">
-                    <label htmlFor="Email-Address-2" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
+                    <label htmlFor="Email-Address-2" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-ink-muted">
                       Email address
                     </label>
                     <input
-                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-control-bg px-4 py-5 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                       maxLength={256}
                       name="Email-Address"
                       data-name="Email Address"
@@ -158,11 +158,11 @@ export default function Contact() {
                     />
                   </div>
                   <div className="w-full">
-                    <label htmlFor="Phone-Number" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
+                    <label htmlFor="Phone-Number" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-ink-muted">
                       Phone number
                     </label>
                     <input
-                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                      className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-control-bg px-4 py-5 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                       maxLength={256}
                       name="Phone-Number"
                       data-name="Phone Number"
@@ -173,11 +173,11 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="mb-4">
-                  <label htmlFor="Subject" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
+                  <label htmlFor="Subject" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-ink-muted">
                     Subject
                   </label>
                   <input
-                    className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-[var(--control-bg)] px-4 py-5 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                    className="mb-1 block min-h-10 w-full rounded-full border border-transparent bg-control-bg px-4 py-5 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                     maxLength={256}
                     name="Subject"
                     data-name="Subject"
@@ -188,7 +188,7 @@ export default function Contact() {
                   />
                 </div>
                 <div className="mb-4">
-                  <label htmlFor="Message" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-[var(--ink-muted)]">
+                  <label htmlFor="Message" className="mb-1.5 block font-mono text-sm leading-none tracking-[-0.025em] text-ink-muted">
                     Message
                   </label>
                   <textarea
@@ -198,23 +198,23 @@ export default function Contact() {
                     data-name="Message"
                     placeholder="Your message ..."
                     required
-                    className="mb-1 block min-h-48 w-full rounded-2xl border border-transparent bg-[var(--control-bg)] p-4 text-base font-medium text-[var(--black)] transition placeholder:text-[var(--control-muted)] hover:border-[var(--control-border-soft)] focus:border-[var(--control-border-soft)] focus:bg-[var(--control-focus)] focus:outline-none"
+                    className="mb-1 block min-h-48 w-full rounded-2xl border border-transparent bg-control-bg p-4 text-base font-medium text-ink transition placeholder:text-control-muted hover:border-control-border-soft focus:border-control-border-soft focus:bg-control-focus focus:outline-none"
                   ></textarea>
                 </div>
                 <input
                   type="submit"
                   data-wait="Please wait..."
-                  className="inline-block cursor-pointer rounded-full bg-[var(--black)] px-4 py-[0.66em] font-mono text-base leading-none text-[var(--white)] transition-opacity hover:opacity-50"
+                  className="inline-block cursor-pointer rounded-full bg-ink px-4 py-[0.66em] font-mono text-base leading-none text-paper transition-opacity hover:opacity-50"
                   value="Submit"
                 />
               </form>
-              <div className="hidden rounded-2xl bg-[var(--black-5)] p-5 text-center">
+              <div className="hidden rounded-2xl bg-ink-5 p-5 text-center">
                 <div className="text-xl leading-[1.3] tracking-[-0.01em]">Thank you!</div>
                 <div className="text-sm leading-[1.4] tracking-[-0.005em]">
                   Your submission has been received!
                 </div>
               </div>
-              <div className="mt-2.5 hidden rounded-2xl bg-[var(--danger-bg)] p-8 text-[var(--danger-foreground)]">
+              <div className="mt-2.5 hidden rounded-2xl bg-danger-bg p-8 text-danger-foreground">
                 <div>Oops! Something went wrong while submitting the form.</div>
               </div>
             </div>

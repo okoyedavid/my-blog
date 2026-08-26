@@ -85,7 +85,7 @@ export function EditorBubbleMenu({ editor, onOpenLink }: EditorBubbleMenuProps) 
         visibility: position ? "visible" : "hidden",
       }}
     >
-      <div className="pointer-events-auto flex max-w-full items-center gap-1 overflow-x-auto rounded-2xl border border-[color:var(--border)] bg-[color:var(--panel-inverse)]/95 p-1 text-[color:var(--panel-inverse-foreground)] shadow-xl backdrop-blur">
+      <div className="pointer-events-auto flex max-w-full items-center gap-1 overflow-x-auto rounded-2xl border border-border bg-panel-inverse/95 p-1 text-panel-inverse-foreground shadow-xl backdrop-blur">
         {[
           { label: "Bold", active: editor.isActive("bold"), action: () => editor.chain().focus().toggleBold().run() },
           { label: "Italic", active: editor.isActive("italic"), action: () => editor.chain().focus().toggleItalic().run() },
@@ -96,7 +96,7 @@ export function EditorBubbleMenu({ editor, onOpenLink }: EditorBubbleMenuProps) 
             type="button"
             onMouseDown={(event) => event.preventDefault()}
             onClick={item.action}
-            className={`shrink-0 rounded-xl px-3 py-2 text-xs font-semibold transition ${item.active ? "bg-[color:var(--panel-inverse-foreground)]/15 text-[color:var(--panel-inverse-foreground)]" : "text-[color:var(--panel-inverse-foreground)]/80 hover:bg-[color:var(--panel-inverse-foreground)]/10 hover:text-[color:var(--panel-inverse-foreground)]"}`}
+            className={`shrink-0 rounded-xl px-3 py-2 text-xs font-semibold transition ${item.active ? "bg-panel-inverse-foreground/15 text-panel-inverse-foreground" : "text-panel-inverse-foreground/80 hover:bg-panel-inverse-foreground/10 hover:text-panel-inverse-foreground"}`}
           >
             {item.label}
           </button>

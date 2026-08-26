@@ -34,7 +34,7 @@ export function BlogArticle({ post, related }: BlogArticleProps) {
           {post.technologies?.length ? (
             <ul className="mt-6 flex list-none flex-row flex-wrap gap-2 p-0">
               {post.technologies.map((technology) => (
-                <li key={technology} className="rounded-full bg-[var(--black-5)] px-3 py-1 font-mono text-xs leading-5">
+                <li key={technology} className="rounded-full bg-ink-5 px-3 py-1 font-mono text-xs leading-5">
                   {technology}
                 </li>
               ))}

@@ -15,7 +15,7 @@ export function EditorContent({
   return (
     <div
       onKeyDownCapture={onKeyDownCapture}
-      className="rounded-[var(--radius-medium)] border border-[color:var(--border)] bg-[color:var(--panel-strong)] px-4 py-3 sm:px-8 sm:py-6"
+      className="rounded-[var(--radius-medium)] border border-border bg-panel-strong px-4 py-3 sm:px-8 sm:py-6"
     >
       <div className="mx-auto w-full max-w-3xl">
         <TiptapEditorContent editor={editor} />
